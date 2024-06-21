@@ -1,21 +1,23 @@
 import React from 'react'
-
+import Button from './Button'
+import { Link } from 'react-router-dom'
 const Navbar = () => {
   return (
     <div className='flex justify-around p-5 bg-custom-color-1'>
       {/* logo  */}
       <div className='mr-48 cursor-pointer'>
-        <h1 className='text-5xl font-extrabold text-[#5E5BFB]'>ColleGMate</h1>
-
-      </div>
+        <Link to={'/'}>
+          <h1 className='text-5xl font-extrabold text-[#5E5BFB]'>ColleGMate</h1>
+        </Link>
+    </div>
 
       {/* login, signup button */}
       <div className='flex ml-20'>
-        <div className='ml-20 cursor-pointer font-medium text-2xl border-2 border-[#423FE5] rounded-md text-white p-2 px-4 bg-[#423FE5]'>
-          <button className=''>Login</button>
+        <div>
+          <Button active={false} linkto={"/login"}>Login</Button>
         </div>
-        <div className='ml-20 cursor-pointer font-medium text-2xl border-2 border-[#423FE5] rounded-md text-white p-2 px-4 bg-[#423FE5]'>
-          <button>Register</button>
+        <div className='ml-20'>
+          <Button active={false} linkto={"/signup"}>Register</Button>
         </div>
 
       </div>
