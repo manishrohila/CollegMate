@@ -1,8 +1,14 @@
 import React, { useState } from 'react'
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom';
+import { signUp } from '../../../services/operations/authAPI';
+
 
 const SignupForm = () => {
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [formData, setFormData]=useState({
     firstName:"",
     lastName:"",
@@ -21,9 +27,13 @@ const SignupForm = () => {
       [e.target.name]:e.target.value,
     }))
   }
+  const handleOnSubmit=(e)=>{
+    e.preventDefault();
+    dispatch(signUp(firstName,lastName,email,password,navigate));
+  }
   return (
     <div>
-      <form className="flex w-full flex-col gap-y-4 mt-4">
+      <form className="flex w-full flex-col gap-y-4 mt-4" onSubmit={handleOnSubmit} >
       <div className="flex gap-x-4">
           <label>
             <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-900">
