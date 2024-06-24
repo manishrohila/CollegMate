@@ -8,8 +8,8 @@ export const NavBarLinks =[
         path:"/courses",
     },
     {
-        title:"About Us",
-        path:"/about",
+        title:"Upload",
+        path:"/upload",
     },
     {
         title:"Contact Us",

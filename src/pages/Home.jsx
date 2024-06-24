@@ -23,7 +23,7 @@ const Home = () => {
             
             <div className='gap-10 flex flex-col'>
               <Button active={false} linkto={'/1styearnotes'} >1st year Notes</Button>
-              <Button active={false} linkto={'/1styearnotes'}>Department Notes</Button>
+              <Button active={false} linkto={'/courses'}>Department Notes</Button>
             </div>
            
           </div>

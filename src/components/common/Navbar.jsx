@@ -2,11 +2,13 @@ import React from 'react'
 import Button from './Button'
 import { Link, matchPath, useLocation } from 'react-router-dom'
 import { NavBarLinks } from '../../Data/navbar-links'
+import { useSelector } from 'react-redux'
+import ProfileDropDown from '../core/Auth/ProfileDropDown'
 
 const Navbar = () => {
 
   const location = useLocation();
-
+const {token} = useSelector((state)=>state.auth);
   const matchRoute = (route) => {
     return matchPath({ path: route }, location.pathname);
   }
@@ -52,14 +54,29 @@ const Navbar = () => {
 
         </nav>
 
-        {/* login, signup button */}
+        {/* login, signup, dashboard button */}
+
+          
         <div className='flex gap-x-6'>
-          <div>
-            <Button active={false} linkto={"/login"}>Login</Button>
-          </div>
-          <div className=''>
-            <Button active={false} linkto={"/signup"}>Register</Button>
-          </div>
+          {
+            token === null && (
+              <div>
+              <Button active={false} linkto={"/login"}>Login</Button>
+              </div>
+              
+            )
+          }
+          {
+            token==null && (
+              <div className=''>
+              <Button active={false} linkto={"/signup"}>Register</Button>
+            </div>
+            )
+          }
+          {
+            token!==null && <ProfileDropDown/>
+          }
+        
 
         </div>
       </div>
