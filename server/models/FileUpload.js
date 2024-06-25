@@ -1,33 +1,42 @@
 const mongoose = require("mongoose");
 
 const fileSchema = new mongoose.mongoose.Schema({
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-        //required:true,
-    },
-    filename: {
-        type: String,
-        required: true,
-    },
-    originalName:{
-        type:String,
 
-    },
-    mimetype: {
-        type:String,
-    },
-    size: {
-        type:Number,
-    },
-    imageUrl: {
-        type: String
-    },
-    uploadedAt:
-    {
-        type: Date,
-        default: Date.now
-    },
+  firstName: {
+    type: String,
+   // required: true,
+    trim: true,
+  },
+  lastName: {
+    type: String,
+    //required: true,
+    trim: true,
+  },
+  Department: {
+    type: String,
+    //required: true,
+    trim: true,
+  }
+  ,
+  year: {
+    type: String,
+    //required: true,
+    trim: true,
+  },
+  subject: {
+    type: String,
+    //required: true,
+    trim: true,
+  }
+  ,
+  filePath: {
+    type: String,
+  },
+  uploadedAt:
+  {
+    type: Date,
+    default: Date.now(),
+  },
 });
 
 module.exports = mongoose.model("file", fileSchema);

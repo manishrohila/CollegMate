@@ -1,26 +1,56 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { department } from "../Data/Department"
+import { localfileUpload } from '../services/operations/uploadAPI';
+
+
+
 const Upload = () => {
 
-  const [formData, setFormData] = useState({
+  const dispatch =  useDispatch();
+  const { user } = useSelector((state) => state.profile);
 
-    department: "",
+
+  const [formData, setFormData] = useState({
+    firstName: user?.firstName || "",
+    lastName: user?.lastName || "",
+    Department: "",
     year: "",
     subject: "",
+    file:null,
   })
 
 
+  const { firstName, lastName, Department, year, subject } = formData;
+  
   const handleOnChange = (e) => {
     setFormData((prevData) => ({
       ...prevData,
       [e.target.name]: e.target.value,
     }))
   }
-  const { user } = useSelector((state) => state.profile);
+  const handleFileChange = (e) => {
+    setFormData({
+      ...formData,
+      file: e.target.files[0]
+    });
+  };
+
+  const handleOnSubmit = (e)=>{
+    e.preventDefault();
+    const data = new FormData();
+    data.append('firstName', formData.firstName);
+    data.append('lastName', formData.lastName);
+    data.append('Department', formData.Department);
+    data.append('year',formData.year);
+    data.append('subject',formData.subject);
+    data.append('file', formData.file);
+    dispatch(localfileUpload(data));
+  }
+
   return (
     <div className='min-h-[calc(100vh-3.2rem)] flex w-7/12 mx-auto pt-36'>
-      <form className="flex w-full flex-col gap-y-4 mt-4 ">
+      <form className="flex w-full flex-col gap-y-4 mt-4 " onSubmit={handleOnSubmit} enctype="multipart/form-data">
         <div className="grid grid-cols-2 gap-x-4 ">
           <label>
             <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-900">
@@ -30,7 +60,7 @@ const Upload = () => {
               required
               type="text"
               name="firstName"
-              value={user?.firstName}
+              value={firstName}
               onChange={handleOnChange}
               placeholder="Enter first name"
               className="form-style w-full"
@@ -44,7 +74,7 @@ const Upload = () => {
               required
               type="text"
               name="lastName"
-              value={user?.lastName}
+              value={lastName}
               onChange={handleOnChange}
               placeholder="Enter last name"
               className="form-style w-full"
@@ -56,7 +86,7 @@ const Upload = () => {
             <p>Department <sup className="text-pink-900">*</sup></p>
             <select className='form-style w-full'>
               {department.map((course, index) => (
-                <option key={index}>{course.name}</option>
+                <option key={index} value={Department}>{course.name}</option>
               ))}
             </select>
           </label>
@@ -67,31 +97,42 @@ const Upload = () => {
             <input
               required
               type="text"
-              name="subjectName"
-              value=""
+              name="subject"
+              value={subject}
               onChange={handleOnChange}
               placeholder="Enter last name"
               className="form-style w-full"
             />
           </label>
         </div>
-        <div className=''>
+        <div className='grid grid-cols-2 gap-x-4'>
           <label className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-900">
             <p>Year <sup className="text-pink-900">*</sup></p>
             <select className='form-style w-full'>
-              <option > 1st year</option>
-              <option > 2nd year</option>
-              <option > 3rd year</option>
-              <option > 4th year</option>
+              <option value={year}> 1st year</option>
+              <option value={year}> 2nd year</option>
+              <option value={year}> 3rd year</option>
+              <option value={year} > 4th year</option>
             </select>
+          </label>
+          <label className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-900">
+            <p>Select File <sup className="text-pink-900">*</sup></p>
+            <input
+              type='file'
+              required
+              name='file'
+              onChange={handleFileChange}
+              className="form-style w-full"
+            >
+            </input>
           </label>
         </div>
         <button
-        type="submit"
-        className="mt-6 rounded-[8px] bg-green-500 py-[8px] px-[12px] font-medium text-richblack-900"
-      >
-        Upload
-      </button>
+          type="submit"
+          className="mt-6 rounded-[8px] bg-green-500 py-[8px] px-[12px] font-medium text-richblack-900"
+        >
+          Upload
+        </button>
       </form>
     </div>
   )

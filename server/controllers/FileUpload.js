@@ -1,30 +1,58 @@
-const File= require("../models/FileUpload")
+const file = require("../models/FileUpload")
 const cloudinary = require("cloudinary").v2;
 //localfileUpload --> handler function
 
 exports.localFileUpload = async (req, res) => {
-    try {
-        const file = req.files.file;
-        console.log("file aa gayi", file);
+    // try {
+    //     const file = req.files.file;
+    //     console.log("file aa gayi", file);
 
-        let path = __dirname + "/files/" + Date.now() + `.${file.name.split('.')[1]}`;
-        file.mv(path, (err) => {
-            console.log(err);
+    //     let path = __dirname + "/files/" + Date.now() + `.${file.name.split('.')[1]}`;
+    //     file.mv(path, (err) => {
+    //         console.log(err);
+    //     });
+    //     res.json({
+    //         success: true,
+    //         message: "local file uploaded successfully"
+    //     })
+    // }
+
+    try {
+        const file = req.file;
+        console.log("file aa gayi ", file);
+        if (!req.file) {
+            throw new Error('File not uploaded');
+        }
+        const newFile = new file({
+            firstName,
+            lastName,
+            Department,
+            year,
+            subject,
+            filePath
         });
-        res.json({
-            success: true,
-            message: "local file uploaded successfully"
-        })
+
+        try {
+            await newFile.save();
+            return res.status(200).send('File uploaded and data saved!');
+        } catch (error) {
+            console.log("Printing error in saving data ", error.message);
+            return res.status(500).send('Error saving data');
+        }
     }
     catch (error) {
-        console.log(error);
+        console.log("Printing error in file uploading", error.message);
+        return res.status(500).json({
+            success: false,
+            message: "file not uploaded",
+        });
     }
 }
-async function uploadFileToCloudinary(file, folder,quality) {
+async function uploadFileToCloudinary(file, folder, quality) {
     const options = { folder };
     options.resource_type = "auto";
-    if(quality){
-        options.quality=quality;
+    if (quality) {
+        options.quality = quality;
     }
     return await cloudinary.uploader.upload(file.tempFilePath, options);
 }
@@ -40,7 +68,7 @@ exports.imageUpload = async (req, res) => {
         const file = req.files.imageFile;
         console.log(file);
         // validation
-        const supportedTypes = ["jpg", "jpeg", "png","pdf"];
+        const supportedTypes = ["jpg", "jpeg", "png", "pdf"];
         const parts = file.name.split('.');
         const fileType = parts[parts.length - 1];
 
@@ -60,7 +88,7 @@ exports.imageUpload = async (req, res) => {
         // db me entry save kerni hai 
 
         const fileData = await File.create({
-            filename:name,
+            filename: name,
             imageUrl: response.secure_url,
         })
         res.json({
@@ -87,7 +115,7 @@ exports.imageUpload = async (req, res) => {
 exports.videoUpload = async (req, res) => {
     try {
         //data fetch
-        const { name} = req.body;
+        const { name } = req.body;
 
 
         const file = req.files.videoFile;
@@ -113,7 +141,7 @@ exports.videoUpload = async (req, res) => {
         // db me entry save kerni hai 
 
         const fileData = await File.create({
-            filename:name,
+            filename: name,
             imageUrl: response.secure_url,
         })
         res.json({
@@ -152,18 +180,18 @@ exports.imageSizeReducer = async (req, res) => {
                 message: "File format not supported",
             })
         }
- 
+
         // file format supported
 
         //TODO : height attribute
-        const response = await uploadFileToCloudinary(file, "codehelp",80);
+        const response = await uploadFileToCloudinary(file, "codehelp", 80);
 
 
         console.log("checking the response", response);
         // db me entry save kerni hai 
 
         const fileData = await File.create({
-            filename:name,
+            filename: name,
             imageUrl: response.secure_url,
         })
         res.json({
