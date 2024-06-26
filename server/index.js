@@ -3,7 +3,7 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const database = require("./config/database");
 const cloudinary = require("./config/cloudinary");
-const fileUpload = require("express-fileupload");
+
 const cors = require('cors')
 
 const dotenv = require("dotenv");
@@ -19,12 +19,6 @@ app.use(cors(
 		credentials: true,
 	}
 ))
-app.use(
-	fileUpload({
-		useTempFiles: true,
-		tempFileDir: "/tmp/",
-	})
-);
 
 database.connect();
 cloudinary.cloudinaryConnect();

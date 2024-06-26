@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { auth, isStudent } = require("../middleware/auth");
-const { imageUpload, videoUpload, imageSizeReducer, localFileUpload } = require("../controllers/FileUpload");
+const {localFileUpload } = require("../controllers/FileUpload");
 
 const file = require("../models/FileUpload");
 
@@ -22,10 +22,6 @@ upload = multer({ storage: storage })
 router.post("/localFileUpload", upload.single("file"),localFileUpload);
 
 
-
-router.post("/imageUpload", auth, imageUpload);
-router.post("/videoUpload", auth, videoUpload);
-router.post("/imageSizeReducer", auth, imageSizeReducer);
 
 
 module.exports = router;

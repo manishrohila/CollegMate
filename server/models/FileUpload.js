@@ -4,28 +4,28 @@ const fileSchema = new mongoose.mongoose.Schema({
 
   firstName: {
     type: String,
-   // required: true,
+    required: true,
     trim: true,
   },
   lastName: {
     type: String,
-    //required: true,
+    required: true,
     trim: true,
   },
   Department: {
     type: String,
-    //required: true,
+    required: true,
     trim: true,
   }
   ,
   year: {
     type: String,
-    //required: true,
+    required: true,
     trim: true,
   },
   subject: {
     type: String,
-    //required: true,
+    required: true,
     trim: true,
   }
   ,

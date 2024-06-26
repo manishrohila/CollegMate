@@ -10,10 +10,6 @@ export function localfileUpload(data) {
         try {
             const response = await apiConnector("POST", LOCAL_FILE_UPLOAD, {
                 data
-            }, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
             })
             console.log("local file upload api response ....", response);
             if (!response.data.success) {
