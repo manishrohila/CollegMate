@@ -13,7 +13,7 @@ exports.auth = async (req, res, next) => {
 
 
         // console.log(req.cookies);
-        // console.log("printing token", token);
+         console.log("printing token in auth.js ", token);
         if (!token) {
             return res.status(401).json({
                 success: "false",
@@ -23,7 +23,7 @@ exports.auth = async (req, res, next) => {
 
         try {
             const decode = await jwt.verify(token, process.env.JWT_SECRET);
-            //console.log(decode);
+            console.log("getting detaisl from token",decode);
             req.user = decode;
         }
         catch (error) {

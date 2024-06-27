@@ -25,8 +25,10 @@ cloudinary.cloudinaryConnect();
 
 const userRoutes = require("./routes/user");
 const fileUploadRoutes = require("./routes/FileUpload");
+const profileRoutes= require("./routes/Profile");
 app.use("/api/v1/auth", userRoutes);
 app.use("/api/v1/upload", fileUploadRoutes);
+app.use("/api/v1/profile",profileRoutes);
 
 // Testing the server
 app.get("/", (req, res) => {

@@ -8,3 +8,6 @@ export const endpoints = {
 export const fileUploadEndpoints={
     LOCAL_FILE_UPLOAD:BASE_URL+"/upload/localFileUpload",
 }
+export const ProfileEndPoints ={
+    GET_USER_DETAILS : BASE_URL+"/profile/getUserDetails",
+}
