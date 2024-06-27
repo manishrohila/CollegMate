@@ -7,25 +7,25 @@ import { localfileUpload } from '../services/operations/uploadAPI';
 
 const Upload = () => {
 
-  const dispatch =  useDispatch();
+  const dispatch = useDispatch();
   const { user } = useSelector((state) => state.profile);
 
-  const [departmentName,setDepartmentName]=useState('EIE Department');
-  const [departmentYear, setDepartmentYear]=useState("1st year");
+  const [departmentName, setDepartmentName] = useState('EIE Department');
+  const [departmentYear, setDepartmentYear] = useState("1st year");
   const [formData, setFormData] = useState({
     firstName: user?.firstName || "",
     lastName: user?.lastName || "",
     Department: departmentName,
     year: departmentYear,
     subject: "",
-    file:null,
+    file: null,
   })
 
 
   const { firstName, lastName, subject } = formData;
-  
-  const handleChangeInYear=(e)=>{
-    
+
+  const handleChangeInYear = (e) => {
+
     setDepartmentYear(e.target.value);
     setFormData((prevData) => ({
       ...prevData,
@@ -33,8 +33,8 @@ const Upload = () => {
     }));
   }
 
-  const handleChangeInDepartment=(e)=>{
-    
+  const handleChangeInDepartment = (e) => {
+
     setDepartmentName(e.target.value);
     setFormData((prevData) => ({
       ...prevData,
@@ -56,15 +56,19 @@ const Upload = () => {
     });
   };
 
-  const handleOnSubmit = (e)=>{
+  const handleOnSubmit = (e) => {
     e.preventDefault();
-    console.log("Printing the form Data ", formData)
-    dispatch(localfileUpload(formData));
-  }
+    console.log("submitButton clicked for upload file  ", formData)
+    try {
+      dispatch(localfileUpload(formData));
+    } catch (error) {
+      console.log("Error in file upload ", error.message);
+    }
 
+  }
   return (
     <div className='min-h-[calc(100vh-3.2rem)] flex w-7/12 mx-auto pt-36'>
-      <form className="flex w-full flex-col gap-y-4 mt-4 " encType="multipart/form-data"  onSubmit={handleOnSubmit} >
+      <form className="flex w-full flex-col gap-y-4 mt-4 " encType="multipart/form-data" onSubmit={handleOnSubmit} >
         <div className="grid grid-cols-2 gap-x-4 ">
           <label>
             <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-900">
@@ -98,7 +102,7 @@ const Upload = () => {
         <div className='grid grid-cols-2 gap-x-4'>
           <label className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-900">
             <p>Department <sup className="text-pink-900">*</sup></p>
-            <select name="Department"   value={departmentName} className='form-style w-full' onChange={handleChangeInDepartment}>
+            <select name="Department" value={departmentName} className='form-style w-full' onChange={handleChangeInDepartment}>
               {department.map((course, index) => (
                 <option key={index} >{course.name}</option>
               ))}
@@ -122,7 +126,7 @@ const Upload = () => {
         <div className='grid grid-cols-2 gap-x-4'>
           <label className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-900">
             <p>Year <sup className="text-pink-900">*</sup></p>
-            <select  name='year' value={departmentYear} onChange={handleChangeInYear} className='form-style w-full'>
+            <select name='year' value={departmentYear} onChange={handleChangeInYear} className='form-style w-full'>
               <option > 1st year</option>
               <option> 2nd year</option>
               <option > 3rd year</option>

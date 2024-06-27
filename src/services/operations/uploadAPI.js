@@ -1,29 +1,31 @@
 import { fileUploadEndpoints } from "../apis";
-import { apiConnector } from "../apiConnector"
+import { apiConnector } from "../apiConnector";
 import { toast } from "react-hot-toast";
+
 const { LOCAL_FILE_UPLOAD } = fileUploadEndpoints;
 
-
-export function localfileUpload(data) {
+export function localfileUpload(formData) {
     return async (dispatch) => {
-
-        const toastId = toast.loading("Loading...")
         try {
-            const response = await apiConnector("POST", LOCAL_FILE_UPLOAD, {
-                data
-            })
-            console.log("local file upload api response ....", response);
-            if (!response.data.success) {
-                throw new Error(response.data.message);
-            }
-            toast.success("file uploaded successfully");
-            toast.dismiss(toastId);
+            const uploadFormData = new FormData();
 
-        }
-        catch (error) {
-            toast.dismiss(toastId);
-            console.log("file upload API error ", error.message);
+            Object.keys(formData).forEach((key) => {
+                uploadFormData.append(key, formData[key]);
+            });
+
+            const response = await apiConnector("POST", LOCAL_FILE_UPLOAD, uploadFormData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+
+            console.log("local file upload api response:", response);
+
+            toast.success("File uploaded successfully");
+        } catch (error) {
+            console.error("Error uploading file:", error);
             toast.error("File upload failed");
         }
     }
+
 }

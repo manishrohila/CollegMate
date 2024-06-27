@@ -3,18 +3,14 @@ const cloudinary = require("cloudinary").v2;
 //localfileUpload --> handler function
 
 exports.localFileUpload = async (req, res) => {
-
+    
      try {
         const {firstName,lastName, Department , subject , year} = req.body;
         const files = req.file;
-        console.log("printing the file data ",req.file);
-        console.log("file aa gayi ", files);
-        console.log(req.body);
-        if (!req.file) {
-            throw new Error('File not uploaded');
-        }
+        console.log("printing the file data ",files);
+        console.log("other data  ", req.body);
+
         const newFile = new File({
-          
             firstName,
             lastName,
             Department,
@@ -25,10 +21,16 @@ exports.localFileUpload = async (req, res) => {
 
         try {
             await newFile.save();
-            return res.status(200).send('File uploaded and data saved!');
+            return res.status(200).json({
+                success:true,
+                message: "file uploaded and data saved",
+            });
         } catch (error) {
             console.log("Printing error in saving data ", error.message);
-            return res.status(500).send('Error saving data');
+            return res.status(500).json({
+                success:false,
+                message:"Error in file data saving",
+            });
         }
     }
     catch (error) {
