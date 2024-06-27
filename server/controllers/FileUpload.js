@@ -1,4 +1,4 @@
-const file = require("../models/FileUpload")
+const File = require("../models/FileUpload")
 const cloudinary = require("cloudinary").v2;
 //localfileUpload --> handler function
 
@@ -7,13 +7,13 @@ exports.localFileUpload = async (req, res) => {
      try {
         const {firstName,lastName, Department , subject , year} = req.body;
         const files = req.file;
-        console.log(req.file);
+        console.log("printing the file data ",req.file);
         console.log("file aa gayi ", files);
         console.log(req.body);
         if (!req.file) {
             throw new Error('File not uploaded');
         }
-        const newFile = new file({
+        const newFile = new File({
           
             firstName,
             lastName,

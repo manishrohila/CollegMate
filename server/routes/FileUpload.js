@@ -1,9 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const { auth, isStudent } = require("../middleware/auth");
 const {localFileUpload } = require("../controllers/FileUpload");
 
-const file = require("../models/FileUpload");
 
 const multer = require('multer')
 

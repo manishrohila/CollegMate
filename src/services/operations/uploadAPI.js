@@ -6,6 +6,7 @@ const { LOCAL_FILE_UPLOAD } = fileUploadEndpoints;
 
 export function localfileUpload(data) {
     return async (dispatch) => {
+
         const toastId = toast.loading("Loading...")
         try {
             const response = await apiConnector("POST", LOCAL_FILE_UPLOAD, {

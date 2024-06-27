@@ -39,5 +39,5 @@ const fileSchema = new mongoose.mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("file", fileSchema);
+module.exports = mongoose.model("File", fileSchema);
 
