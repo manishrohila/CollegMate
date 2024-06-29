@@ -9,7 +9,6 @@ const {GET_USER_DETAILS}  = ProfileEndPoints
 export function getUserDetails (token , navigate){
 
     return async (dispatch)=>{
-        console.log("Printing token in frontend ", token);
         const toastId = toast.loading("Loading...");
         
         try{
@@ -17,7 +16,7 @@ export function getUserDetails (token , navigate){
                 Authorization: `Bearer ${token}`,
               })
 
-            console.log("Get User Details Api Response ......", response);
+            //console.log("Get User Details Api Response ......", response);
             if (!response.data.success) {
                 throw new Error(response.data.message)
               }

@@ -41,3 +41,34 @@ exports.localFileUpload = async (req, res) => {
         });
     }
 }
+
+exports.getSubjectName = async (req, res) => {
+    try {
+      const { Department } = req.query;
+  
+      // Validate required parameters
+      if (!Department) {
+        return res.status(400).json({
+          success: false,
+          message: "Missing required parameters: year and department",
+        });
+      }
+  
+      const response = await File.find({
+        Department, 
+      }).distinct('subject'); 
+
+      return res.status(200).json({
+        success: true,
+        message: "Subject names found",
+        subjects: response, // Rename 'response' to 'subjects' for clarity
+      });
+    } catch (error) {
+      console.error("Error in getting subject names:", error.message);
+      return res.status(500).json({
+        success: false,
+        message: "Subject names cannot be fetched",
+      });
+    }
+  };
+  

@@ -1,11 +1,11 @@
 export const department = [
     {
         id:1,
-        name:"EIE  Department"
+        name:"EIE Department"
     },
     {
         id:2,
-        name:"EE  Department"
+        name:"EE Department"
     },
     {
         id:3,

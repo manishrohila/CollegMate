@@ -2,7 +2,6 @@ const User = require("../models/User");
 
 exports.getUserDetails = async(req,res)=>{
     try{
-        console.log("Checking the details ");
         const id = req.user.id;
         const userDetails = await User.findById(id);
          res.status(200).json({

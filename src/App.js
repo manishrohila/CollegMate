@@ -10,12 +10,13 @@ import Courses from './pages/Courses';
 import Course from './components/core/Courses/Course';
 import Upload from './pages/Upload';
 import Contact from './pages/Contact';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import OpenRoute from './components/core/Auth/OpenRoute';
 import PrivateRoute from './components/core/Auth/PrivateRoute';
 import Error from './pages/Error';
 import { useEffect } from 'react';
 import { getUserDetails } from './services/operations/profileAPI';
+import SubjectNotes from "../src/components/core/Courses/SubjectNotes"
 export default function App() {
 
   // const { user } = useSelector((state) => state.profile);
@@ -25,7 +26,6 @@ export default function App() {
   useEffect(() => {
     if (localStorage.getItem("token")) {
       const token = JSON.parse(localStorage.getItem("token"))
-      console.log("Printing token in app.js ", token);
       dispatch(getUserDetails(token, navigate))
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -60,12 +60,17 @@ export default function App() {
 
         <Route path='/courses' element={<Courses />}></Route>
 
-        <Route path='/courses/:department' element={
+        <Route path='/courses/:Department' element={
           <PrivateRoute>
             <Course />
           </PrivateRoute>
         }></Route>
 
+        <Route path='/courses/:Department/subjectNotes/:subjectName' element={
+          <PrivateRoute>
+            <SubjectNotes/>
+          </PrivateRoute>
+        }></Route>
         <Route path='/upload' element={
           <PrivateRoute>
             <Upload />
@@ -73,10 +78,11 @@ export default function App() {
         }></Route>
 
         <Route path='/contact' element={<Contact />}></Route>
-        <Route path= "*" element={<Error/>}/>
+
+        <Route path="*" element={<Error />} />
       </Routes>
 
-      
+
       <Footer />
     </>
   )

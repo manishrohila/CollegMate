@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { localFileUpload } = require("../controllers/FileUpload");
+const { localFileUpload, getSubjectName } = require("../controllers/FileUpload");
 const path=require('path')
 
 
@@ -22,7 +22,7 @@ const storage = multer.diskStorage({
 
 router.post("/localFileUpload", upload.single("file"), localFileUpload);
 
-
+router.get("/getSubjectName",getSubjectName);
 
 
 module.exports = router;
