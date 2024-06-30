@@ -9,9 +9,11 @@ const Upload = () => {
 
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.profile);
+  const {token }= useSelector((state)=>state.auth);
 
   const [departmentName, setDepartmentName] = useState('EIE Department');
   const [departmentYear, setDepartmentYear] = useState("1st year");
+  
   const [formData, setFormData] = useState({
     firstName: user?.firstName || "",
     lastName: user?.lastName || "",
@@ -60,7 +62,7 @@ const Upload = () => {
     e.preventDefault();
     console.log("submitButton clicked for upload file  ", formData)
     try {
-      dispatch(localfileUpload(formData));
+      dispatch(localfileUpload(formData,token));
     } catch (error) {
       console.log("Error in file upload ", error.message);
     }

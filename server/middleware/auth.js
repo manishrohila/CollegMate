@@ -6,9 +6,11 @@ dotenv.config();
 
 exports.auth = async (req, res, next) => {
     try {
-        // Check for token in various locations
-        const token = req.body.token || req.cookies.token || req.header("Authorization").replace("Bearer ", "");
-
+        const token =
+            req.cookies.token ||
+            req.body.token ;
+            console.log("printing req body", req.body,req.cookies);
+        console.log("Printing token in middleware", token);
         if (!token) {
             return res.status(401).json({
                 success: false,
@@ -42,7 +44,7 @@ exports.auth = async (req, res, next) => {
 exports.isStudent = async (req, res, next) => {
     try {
         const userDetails = await User.findOne({ email: req.user.email });
-    
+
         if (userDetails.accountType !== "Student") {
             return res.status(401).json({
                 success: false,

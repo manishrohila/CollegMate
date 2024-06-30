@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const { localFileUpload, getSubjectName } = require("../controllers/FileUpload");
+const { localFileUpload, getSubjectName, getFilesByDepartmentAndSubject } = require("../controllers/File");
 const path=require('path')
 
 
-const multer = require('multer')
+const multer = require('multer');
+const { auth } = require("../middleware/auth");
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -20,9 +21,11 @@ const storage = multer.diskStorage({
     storage: storage,
 });
 
-router.post("/localFileUpload", upload.single("file"), localFileUpload);
+router.post("/localFileUpload",auth, upload.single("file"),localFileUpload);
 
 router.get("/getSubjectName",getSubjectName);
+
+router.get("/getFilesByDepartmentAndSubject",getFilesByDepartmentAndSubject)
 
 
 module.exports = router;

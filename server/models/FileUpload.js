@@ -2,6 +2,12 @@ const mongoose = require("mongoose");
 
 const fileSchema = new mongoose.mongoose.Schema({
 
+  uploadedBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "user",
+    //required: true,
+  },
+
   firstName: {
     type: String,
     required: true,
@@ -29,6 +35,10 @@ const fileSchema = new mongoose.mongoose.Schema({
     trim: true,
   }
   ,
+  fileName:{
+    type:String,
+},
+
   filePath: {
     type: String,
   },

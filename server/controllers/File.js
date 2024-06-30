@@ -1,14 +1,14 @@
 const File = require("../models/FileUpload")
-const cloudinary = require("cloudinary").v2;
-//localfileUpload --> handler function
 
 exports.localFileUpload = async (req, res) => {
     
      try {
-        const {firstName,lastName, Department , subject , year} = req.body;
+        const {firstName,lastName, Department , subject , year , fileName} = req.body;
+        console.log("print req user",req.user);
         const files = req.file;
-        console.log("printing the file data ",files);
-        console.log("other data  ", req.body);
+        const userId = req.user.id;
+        console.log("printing file ", req.file);
+        console.log("Printing user id ", userId);
 
         const newFile = new File({
             firstName,
@@ -16,7 +16,9 @@ exports.localFileUpload = async (req, res) => {
             Department,
             year,
             subject,
+            fileName,
             filePath:files.path,
+            uploadedBy: userId, 
         });
 
         try {
@@ -71,4 +73,38 @@ exports.getSubjectName = async (req, res) => {
       });
     }
   };
-  
+
+
+exports.getFilesByDepartmentAndSubject = async (req, res) => {
+  try {
+      const { Department, subjectName } = req.query;
+
+      console.log("Department:", Department, "Subject Name:", subjectName);
+      if (!Department || !subjectName) {
+          return res.status(400).json({
+              success: false,
+              message: "Missing required parameters: department and/or subjectName",
+          });
+      }
+
+      const files = await File.find({
+          Department,
+          subject: subjectName
+      });
+
+      //console.log("Files found:", files);
+      return res.status(200).json({
+          success: true,
+          message: "Files found",
+          files,
+      });
+  } catch (error) {
+      console.error("Error in getting files:", error.message);
+      return res.status(500).json({
+          success: false,
+          message: "Files cannot be fetched",
+      });
+  }
+};
+
+
