@@ -41,8 +41,12 @@ const SubjectNotes = () => {
             <div className='grid grid-cols-3 text-lg w-10/12 mx-auto mt-4 gap-x-8 items-center'>
                 {files.length > 0 ? (
                     files.map((file, index) => (
-                        <div key={index} className='bg-green-300 rounded font-medium p-4 m-2'>
-                            <p>File Name: {file.filePath}</p>
+                        <div key={index} className='bg-green-300 text-sm rounded font-medium p-4 m-2'>
+                            <p className=''>File Name: {file.filePath.split("/")[1]}</p>
+                            <p>Year : {file.year}</p>
+                            
+                            <p>Subject: {file.subject}</p>
+                            <p>Uploaded By : {file.firstName}</p>
                             <button
                                 className='bg-blue-500 text-white rounded p-2 mt-2'
                                 onClick={() => window.open(`http://localhost:4000/${file.filePath}`, '_blank')}

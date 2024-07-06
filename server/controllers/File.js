@@ -4,11 +4,11 @@ exports.localFileUpload = async (req, res) => {
     
      try {
         const {firstName,lastName, Department , subject , year , fileName} = req.body;
-        console.log("print req user",req.user);
+        //console.log("print req user",req.user);
         const files = req.file;
-        const userId = req.user.id;
-        console.log("printing file ", req.file);
-        console.log("Printing user id ", userId);
+        //const userId = req.user.id;
+       //console.log("printing file ", req.file);
+        //console.log("Printing user id ", userId);
 
         const newFile = new File({
             firstName,
@@ -18,8 +18,9 @@ exports.localFileUpload = async (req, res) => {
             subject,
             fileName,
             filePath:files.path,
-            uploadedBy: userId, 
+           // uploadedBy: userId, 
         });
+        console.log("Printing new file",newFile);
 
         try {
             await newFile.save();

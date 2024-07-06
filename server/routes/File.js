@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
     },
     filename: function (req, file, cb) {
         const uniqueSuffix = Date.now();
-        cb(null, uniqueSuffix +"-"+ file.originalname);
+        cb(null, file.originalname+"-"+ uniqueSuffix );
     },
 });
 
@@ -21,7 +21,7 @@ const storage = multer.diskStorage({
     storage: storage,
 });
 
-router.post("/localFileUpload",auth, upload.single("file"),localFileUpload);
+router.post("/localFileUpload", upload.single("file"),localFileUpload);
 
 router.get("/getSubjectName",getSubjectName);
 
