@@ -6,11 +6,15 @@ dotenv.config();
 
 exports.auth = async (req, res, next) => {
     try {
+        console.log("Printing token in middleware cokkies", req.cookies);
+
         const token =
             req.cookies.token ||
-            req.body.token ;
-            console.log("printing req body", req.body,req.cookies);
-        console.log("Printing token in middleware", token);
+            req.body.token ||
+            req.headers['authorization']?.split(" ")[1];  // Check Authorization header (lowercase)
+
+        console.log("Printing token in middleware", token, req.body);
+
         if (!token) {
             return res.status(401).json({
                 success: false,
@@ -19,10 +23,9 @@ exports.auth = async (req, res, next) => {
         }
 
         try {
-            // Await the verification promise
-            const decoded = await jwt.verify(token, process.env.JWT_SECRET);
-            // console.log("getting details from token", decoded);
+            const decoded = jwt.verify(token, process.env.JWT_SECRET);
             req.user = decoded;
+            console.log("Decoded Token:", decoded);
             next();
         } catch (error) {
             console.error("Error verifying token:", error);
@@ -35,26 +38,7 @@ exports.auth = async (req, res, next) => {
         console.error("Error in auth middleware:", error);
         return res.status(500).json({
             success: false,
-            message: `Something Went Wrong While Validating the Token`,
+            message: "Something went wrong while validating the token",
         });
-    }
-};
-
-
-exports.isStudent = async (req, res, next) => {
-    try {
-        const userDetails = await User.findOne({ email: req.user.email });
-
-        if (userDetails.accountType !== "Student") {
-            return res.status(401).json({
-                success: false,
-                message: "This is a Protected Route for Students",
-            });
-        }
-        next();
-    } catch (error) {
-        return res
-            .status(500)
-            .json({ success: false, message: `User Role Can't be Verified` });
     }
 };
