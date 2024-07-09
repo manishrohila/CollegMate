@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const fileSchema = new mongoose.mongoose.Schema({
+const fileSchema = new mongoose.Schema({
 
   uploadedBy: {
     type: mongoose.Schema.Types.ObjectId,
