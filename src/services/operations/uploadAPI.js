@@ -6,13 +6,14 @@ const { LOCAL_FILE_UPLOAD } = fileUploadEndpoints;
 
 function logFormData(formData) {
     for (let pair of formData.entries()) {
-        console.log(`${pair[0]}: ${pair[1]}`);
+        console.log(`hello ${pair[0]}: ${pair[1]}`);
     }
 }
 
 export function localfileUpload(formData, token) {
     return async (dispatch) => {
         try {
+            console.log("printing formData" , formData);
             const uploadFormData = new FormData();
 
             // Append each key-value pair from formData to the FormData instance
@@ -21,7 +22,6 @@ export function localfileUpload(formData, token) {
                     uploadFormData.append(key, formData[key]);
                 }
             }
-            uploadFormData.append('token', token);
 
             // Log the FormData contents
             logFormData(uploadFormData);

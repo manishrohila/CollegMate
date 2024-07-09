@@ -8,7 +8,7 @@ import ProfileDropDown from '../core/Auth/ProfileDropDown'
 const Navbar = () => {
 
   const location = useLocation();
-const {token} = useSelector((state)=>state.auth);
+  const {token} = useSelector((state)=>state.auth);
   const matchRoute = (route) => {
     return matchPath({ path: route }, location.pathname);
   }

@@ -1,13 +1,11 @@
 const mongoose = require("mongoose");
 
-const fileSchema = new mongoose.mongoose.Schema({
-
+const fileSchema = new mongoose.Schema({
   uploadedBy: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "user",
-    //required: true,
+    ref: "User",  // Ensure this matches the name of your User model
+    // required: true,
   },
-
   firstName: {
     type: String,
     required: true,
@@ -22,8 +20,7 @@ const fileSchema = new mongoose.mongoose.Schema({
     type: String,
     required: true,
     trim: true,
-  }
-  ,
+  },
   year: {
     type: String,
     required: true,
@@ -33,21 +30,17 @@ const fileSchema = new mongoose.mongoose.Schema({
     type: String,
     required: true,
     trim: true,
-  }
-  ,
-  fileName:{
-    type:String,
-},
-
+  },
+  fileName: {
+    type: String,
+  },
   filePath: {
     type: String,
   },
-  uploadedAt:
-  {
+  uploadedAt: {
     type: Date,
-    default: Date.now(),
+    default: Date.now,
   },
 });
 
 module.exports = mongoose.model("File", fileSchema);
-

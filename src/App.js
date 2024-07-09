@@ -16,7 +16,9 @@ import PrivateRoute from './components/core/Auth/PrivateRoute';
 import Error from './pages/Error';
 import { useEffect } from 'react';
 import { getUserDetails } from './services/operations/profileAPI';
-import SubjectNotes from "../src/components/core/Courses/SubjectNotes"
+import SubjectNotes from "../src/components/core/Courses/SubjectNotes";
+
+
 export default function App() {
 
   // const { user } = useSelector((state) => state.profile);
@@ -47,9 +49,11 @@ export default function App() {
         }> </Route>
 
 
-        <Route path='/signup' element={<OpenRoute>
+        <Route path='/signup' element={
+          <OpenRoute>
           <Signup />
-        </OpenRoute>}></Route>
+        </OpenRoute>
+        }></Route>
 
 
         <Route path='/dashboard' element={
