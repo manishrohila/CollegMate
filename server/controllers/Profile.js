@@ -2,7 +2,9 @@ const User = require("../models/User");
 
 exports.getUserDetails = async(req,res)=>{
     try{
+        //console.log("print req.user ",req.user);
         const id = req.user.id;
+ 
         const userDetails = await User.findById(id);
          res.status(200).json({
             success: true,
