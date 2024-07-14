@@ -7,7 +7,6 @@ const fileSchema = new mongoose.Schema({
     ref: "user",
     required: true,
   },
-
   firstName: {
     type: String,
     required: true,
@@ -22,8 +21,7 @@ const fileSchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true,
-  }
-  ,
+  },
   year: {
     type: String,
     required: true,
@@ -33,21 +31,17 @@ const fileSchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true,
-  }
-  ,
-  fileName:{
-    type:String,
-},
-
+  },
+  fileName: {
+    type: String,
+  },
   filePath: {
     type: String,
   },
-  uploadedAt:
-  {
+  uploadedAt: {
     type: Date,
-    default: Date.now(),
+    default: Date.now,
   },
 });
 
 module.exports = mongoose.model("File", fileSchema);
-

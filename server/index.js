@@ -4,11 +4,12 @@ const cookieParser = require("cookie-parser");
 const database = require("./config/database");
 const cloudinary = require("./config/cloudinary");
 const path = require('path');
-const cors = require('cors')
+const cors = require('cors');
 
 const dotenv = require("dotenv");
 dotenv.config();
 
+<<<<<<< HEAD
 const PORT = process.env.PORT || 5000;
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
@@ -20,26 +21,39 @@ app.use(cors(
 		credentials: true,
 	}
 ))
+=======
+const PORT = process.env.PORT || 5001;
+
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(cookieParser());
+app.use('/files', express.static(path.join(__dirname, 'files')));
+app.use(cors({
+    origin: "*",
+    credentials: true,
+}));
+>>>>>>> 3b5aa7303f1490b490e91f02bd5cd88839fd352f
 
 database.connect();
 cloudinary.cloudinaryConnect();
 
 const userRoutes = require("./routes/user");
 const fileRoutes = require("./routes/File");
-const profileRoutes= require("./routes/Profile");
+const profileRoutes = require("./routes/Profile");
+
 app.use("/api/v1/auth", userRoutes);
 app.use("/api/v1/upload", fileRoutes);
-app.use("/api/v1/profile",profileRoutes);
+app.use("/api/v1/profile", profileRoutes);
 
 // Testing the server
 app.get("/", (req, res) => {
-	return res.json({
-		success: true,
-		message: "Your server is up and running ...",
-	});
+    return res.json({
+        success: true,
+        message: "Your server is up and running ...",
+    });
 });
 
 // Listening to the server
 app.listen(PORT, () => {
-	console.log(`App is listening at ${PORT}`);
+    console.log(`App is listening at ${PORT}`);
 });

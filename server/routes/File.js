@@ -1,15 +1,20 @@
 const express = require("express");
 const router = express.Router();
 const { localFileUpload, getSubjectName, getFilesByDepartmentAndSubject } = require("../controllers/File");
-const path=require('path')
-
-
-const multer = require('multer');
+const path = require("path");
+const fs = require("fs");
+const multer = require("multer");
 const { auth } = require("../middleware/auth");
+
+// Ensure the destination folder exists
+const filesDir = path.join(__dirname, "..", "files");
+if (!fs.existsSync(filesDir)) {
+    fs.mkdirSync(filesDir, { recursive: true });
+}
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, './files');
+        cb(null, filesDir);
     },
     filename: function (req, file, cb) {
         const uniqueSuffix = Date.now();
@@ -17,15 +22,13 @@ const storage = multer.diskStorage({
     },
 });
 
- const upload = multer({
+const upload = multer({
     storage: storage,
 });
 
-router.post("/localFileUpload",auth, upload.single("file"),localFileUpload);
-
-router.get("/getSubjectName",getSubjectName);
-
-router.get("/getFilesByDepartmentAndSubject",getFilesByDepartmentAndSubject)
-
+// Routes
+router.post("/localFileUpload", auth, upload.single("file"), localFileUpload);
+router.get("/getSubjectName", getSubjectName);
+router.get("/getFilesByDepartmentAndSubject", getFilesByDepartmentAndSubject);
 
 module.exports = router;
