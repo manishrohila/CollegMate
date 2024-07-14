@@ -5,7 +5,7 @@ const fileSchema = new mongoose.Schema({
   uploadedBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "user",
-    //required: true,
+    required: true,
   },
 
   firstName: {

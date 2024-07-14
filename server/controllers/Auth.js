@@ -50,74 +50,60 @@ exports.signup = async (req, res) => {
     }
 }
 exports.login = async (req, res) => {
-
     try {
-        const { email, password } = req.body;
-
-        //validate 
-        if (!email || !password) {
-            return res.status(403).json({
-                success: "false",
-                message: "Please fill all the details",
-
-            })
-        }
-        //find user 
-        const user = await User.findOne({ email });
-        
-        if (!user) {
-            return res.status(401).json({
-                success: "false",
-                message: "User is not Registered with Us Please SignUp to Continue"
-            })
-        }
-        //generate jwt token
-        if (await bcrypt.compare(password, user.password)) {
-
-            const token = jwt.sign(
-                {
-                    email: user.email,
-                    id: user._id,
-                    role: user.role,
-                },
-                process.env.JWT_SECRET,
-                {
-                    expiresIn: "24h",
-                }
-            )
-
-            user.token = token;
-            user.password = undefined
-
-            const options = {
-                expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
-                httpOnly: true,
-            }
-           
-            res.cookie("token", token, options).status(200).json({
-                success: true,
-                token,
-                user,
-                message: `User Login Success`,
-            })
-            
-
-        }
-        else {
-            return res.status(401).json({
-                success: "false",
-                message: "Password is incorrect",
-            })
-        }
+      const { email, password } = req.body;
+  
+      if (!email || !password) {
+        return res.status(403).json({
+          success: "false",
+          message: "Please fill all the details",
+        });
+      }
+  
+      const user = await User.findOne({ email });
+  
+      if (!user) {
+        return res.status(401).json({
+          success: "false",
+          message: "User is not Registered with Us Please SignUp to Continue"
+        });
+      }
+  
+      if (await bcrypt.compare(password, user.password)) {
+        const token = jwt.sign(
+          { email: user.email, id: user._id, role: user.role },
+          process.env.JWT_SECRET,
+          { expiresIn: "24h" }
+        );
+  
+        const options = {
+          expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
+          httpOnly: true,
+          secure: process.env.NODE_ENV === "production",
+        };
+  
+        user.token = token;
+        user.password = undefined;
+  
+        console.log('Setting cookie:', token); // Log token
+        res.cookie("token", token, options).status(200).json({
+          success: true,
+          token,
+          user,
+          message: `User Login Success`,
+        });
+      } else {
+        return res.status(401).json({
+          success: "false",
+          message: "Password is incorrect",
+        });
+      }
+    } catch (error) {
+      console.error("Login error:", error); // Log error
+      return res.status(500).json({
+        success: false,
+        message: `Login Failure Please Try Again`,
+      });
     }
-
-    catch (error) {
-        console.error(error)
-        // Return 500 Internal Server Error status code with error message
-        return res.status(500).json({
-            success: false,
-            message: `Login Failure Please Try Again`,
-        })
-    }
-
-}
+  };
+  

@@ -12,23 +12,24 @@ const Course = () => {
     const [subjects, setSubjects] = useState([]);
 
     async function getSubjectName(Department) {
-        const toastId = toast.loading("Loading...")
+        const toastId = toast.loading("Loading...");
         try {
-
-            const response = await apiConnector("GET", `${GET_SUBJECT_NAME_API}`, null, null, { Department });
-
+            const response = await apiConnector(
+                "GET",
+                `${GET_SUBJECT_NAME_API}?Department=${encodeURIComponent(Department)}`
+            );
             setSubjects(response.data.subjects);
-        }
-        catch (error) {
-            console.log("Get Subject Name api error ...", error.message);
+        } catch (error) {
+            console.log("Get Subject Name API error ...", error.message);
         }
         toast.dismiss(toastId);
     }
+    
     useEffect(() => {
         if (Department) {
             getSubjectName(Department);
         }
-    }, [Department])
+    }, [Department]);
 
     return (
         <div className='min-h-[calc(100vh-3.2rem)]'>

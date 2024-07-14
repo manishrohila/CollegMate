@@ -25,7 +25,9 @@ export default function App() {
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
+
       const token = JSON.parse(localStorage.getItem("token"))
+      console.log("print token in app.js ",token);
       dispatch(getUserDetails(token, navigate))
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

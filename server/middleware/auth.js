@@ -8,9 +8,7 @@ exports.auth = async (req, res, next) => {
     try {
         const token =
             req.cookies.token ||
-            req.body.token ;
-            console.log("printing req body", req.body,req.cookies);
-        console.log("Printing token in middleware", token);
+            req.body.token || req.headers['authorization']?.split(" ")[1] ;
         if (!token) {
             return res.status(401).json({
                 success: false,
