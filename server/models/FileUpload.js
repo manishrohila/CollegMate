@@ -38,6 +38,9 @@ const fileSchema = new mongoose.Schema({
   filePath: {
     type: String,
   },
+  DriveLink:{
+    type:String,
+  },
   uploadedAt: {
     type: Date,
     default: Date.now,

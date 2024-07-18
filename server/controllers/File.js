@@ -45,9 +45,54 @@ exports.localFileUpload = async (req, res) => {
     }
 }
 
+exports.fileUploadUsingDriveLink = async (req, res) => {
+    
+  try {
+    console.log("Printing req.body", req.body);
+     const {firstName,lastName, Department , subject , year , fileName,driveLink} = req.body;
+     console.log("print req user",req.user);
+     const userId = req.user.id;
+    //console.log("printing file ", req.file);
+     console.log("Printing user id ", userId);
+
+     const newFile = new File({
+         firstName,
+         lastName,
+         Department,
+         year,
+         subject,
+         fileName,
+         driveLink,
+        uploadedBy: userId, 
+     });
+     console.log("Printing new file",newFile);
+
+     try {
+         await newFile.save();
+         return res.status(200).json({
+             success:true,
+             message: "file uploaded and data saved",
+         });
+     } catch (error) {
+         console.log("Printing error in saving data ", error.message);
+         return res.status(500).json({
+             success:false,
+             message:"Error in file data saving",
+         });
+     }
+ }
+ catch (error) {
+     console.log("Printing error in file uploading", error.message);
+     return res.status(500).json({
+         success: false,
+         message: "file not uploaded",
+     });
+ }
+}
+
 exports.getSubjectName = async (req, res) => {
     try {
-      console.log("print req.query",req.query)
+    //  console.log("print req.query",req.query)
       const { Department } = req.query;
   
       // Validate required parameters

@@ -6,7 +6,7 @@ dotenv.config();
 
 exports.auth = async (req, res, next) => {
     try {
-        console.log("Printing token in middleware cokkies", req.cookies);
+        //console.log("Printing token in middleware cokkies", req.cookies);
 
         const token =
             req.cookies.token ||
@@ -21,7 +21,7 @@ exports.auth = async (req, res, next) => {
         try {
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
             req.user = decoded;
-            console.log("Decoded Token:", decoded);
+            //console.log("Decoded Token:", decoded);
             next();
         } catch (error) {
             console.error("Error verifying token:", error);

@@ -9,7 +9,6 @@ const cors = require('cors');
 const dotenv = require("dotenv");
 dotenv.config();
 
-<<<<<<< HEAD
 const PORT = process.env.PORT || 5000;
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
@@ -21,18 +20,6 @@ app.use(cors(
 		credentials: true,
 	}
 ))
-=======
-const PORT = process.env.PORT || 5001;
-
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-app.use(cookieParser());
-app.use('/files', express.static(path.join(__dirname, 'files')));
-app.use(cors({
-    origin: "*",
-    credentials: true,
-}));
->>>>>>> 3b5aa7303f1490b490e91f02bd5cd88839fd352f
 
 database.connect();
 cloudinary.cloudinaryConnect();

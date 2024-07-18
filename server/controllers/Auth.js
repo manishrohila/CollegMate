@@ -85,7 +85,7 @@ exports.login = async (req, res) => {
         user.token = token;
         user.password = undefined;
   
-        console.log('Setting cookie:', token); // Log token
+       // console.log('Setting cookie:', token); // Log token
         res.cookie("token", token, options).status(200).json({
           success: true,
           token,

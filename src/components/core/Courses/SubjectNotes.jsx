@@ -29,7 +29,7 @@ const SubjectNotes = () => {
   }
   useEffect(()=>{
     if(Department && subjectName){
-      console.log("Fetching files for department:", Department, "and subject:", subjectName);
+     // console.log("Fetching files for department:", Department, "and subject:", subjectName);
       getFiles(Department,subjectName);
     }
   },[Department,subjectName]);

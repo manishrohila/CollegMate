@@ -17,6 +17,8 @@ import Error from './pages/Error';
 import { useEffect } from 'react';
 import { getUserDetails } from './services/operations/profileAPI';
 import SubjectNotes from "../src/components/core/Courses/SubjectNotes";
+import DirectUploads from './components/core/fileUpload/DirectUploads';
+import DriveLinkUploads from './components/core/fileUpload/DriveLinkUploads';
 
 
 export default function App() {
@@ -80,6 +82,16 @@ export default function App() {
         <Route path='/upload' element={
           <PrivateRoute>
             <Upload />
+          </PrivateRoute>
+        }></Route>
+        <Route path='/upload/uploadLocalfile' element={
+          <PrivateRoute>
+            <DirectUploads />
+          </PrivateRoute>
+        }></Route>
+        <Route path='/upload/uploadUsingDriveLink' element={
+          <PrivateRoute>
+            <DriveLinkUploads/>
           </PrivateRoute>
         }></Route>
 
