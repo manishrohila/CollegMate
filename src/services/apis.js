@@ -15,3 +15,7 @@ export const ProfileEndPoints ={
     GET_USER_DETAILS : BASE_URL+"/profile/getUserDetails",
 }
 
+export const feedbackFormEndPoints = {
+    SEND_FEEDBACK : BASE_URL+"/contact/sendFeedback",
+}
+

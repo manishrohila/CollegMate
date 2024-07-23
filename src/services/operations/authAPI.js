@@ -1,9 +1,10 @@
 import { toast } from "react-hot-toast";
 import { apiConnector } from "../apiConnector"
 import { setLoading, setToken } from "../../slices/authSlice"
-import { endpoints } from "../apis";
+import { endpoints} from "../apis";
 import { setUser } from "../../slices/profileSlice"
 const { LOGIN_API, SIGNUP_API } = endpoints
+
 
 export function signUp(
   firstName,
