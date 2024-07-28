@@ -25,7 +25,7 @@ const Course = () => {
         }
         toast.dismiss(toastId);
     }
-    
+
     useEffect(() => {
         if (Department) {
             getSubjectName(Department);
@@ -39,14 +39,14 @@ const Course = () => {
             </div>
 
             <div >
-                <CourseCard/>
+                <CourseCard Department={Department}/>
             </div>
-            
+
             <div>
-               
-                    {subjects.map((subject, index) => (
-                        <SubjectCard key={index} Department={Department} subject={subject} />
-                    ))}
+
+                {subjects.map((subject, index) => (
+                    <SubjectCard key={index} Department={Department} subject={subject} />
+                ))}
 
             </div>
         </div>
