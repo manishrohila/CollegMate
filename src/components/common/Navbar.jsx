@@ -14,7 +14,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className={`flex h-16 items-center justify-center border-b-[1px] border-b-richblack-700 ${
+    <div className={`flex h-16 items-center bg-white justify-center border-b-[1px] border-b-richblack-700 ${
       location.pathname === "/" ? "bg-richblack-800" : ""
     } transition-all duration-200`}>
       {/* logo  */}
@@ -22,7 +22,7 @@ const Navbar = () => {
       <div className='flex w-11/12 max-w-maxContent items-center justify-between'>
         <div className=' cursor-pointer'>
           <Link to={'/'}>
-            <h1 className='text-5xl font-extrabold text-[#5E5BFB]'>ColleGMate</h1>
+            <h1 className='text-5xl font-extrabold text-blue-500'>StudySync</h1>
           </Link>
         </div>
 
@@ -38,8 +38,8 @@ const Navbar = () => {
                       <Link to={link?.path}>
                         <p
                           className={`${matchRoute(link?.path)
-                            ? "text-amber-400"
-                            : "text-richblack-500"
+                            ? "text-blue-700"
+                            : "text-[#2d2f31]"
                             }`}
                         >
                           {link.title}
@@ -61,7 +61,7 @@ const Navbar = () => {
           {
             token === null && (
               <div>
-              <Button active={false} linkto={"/login"}>Login</Button>
+              <Button active={false} linkto={"/login"} className={'bg-blue-600 hover:bg-blue-700'}>Login</Button>
               </div>
               
             )
@@ -69,7 +69,7 @@ const Navbar = () => {
           {
             token==null && (
               <div className=''>
-              <Button active={false} linkto={"/signup"}>Register</Button>
+              <Button active={false} linkto={"/signup"} className={'bg-blue-600 hover:bg-blue-700'}>Register</Button>
             </div>
             )
           }
