@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <>
       <div className='bg-white min-h-screen pt-12'>
-        <div className="container flex flex-col justify-center items-center">
+        <div className="flex  justify-center items-center">
 
           <div className="flex justify-center text-7xl font-medium font-sans bg-gradient-to-r from-pink-600 to-blue-600 bg-clip-text text-transparent">
             <Typewriter
@@ -26,15 +26,16 @@ const Home = () => {
               }}
             />
           </div>
-          <div className="text-4xl text-[#2d2f31] flex flex-col text-left mr-72 pt-8">
+         
+        </div>
+        <div className="text-4xl text-[#2d2f31] flex flex-col mt-32 justify-center items-center">
             <p>Access and share the best study notes, past </p>
             <p>papers, and resources from your peers and </p>
             <p>professors.</p>
           </div>
-        </div>
-        <div className='grid grid-cols-2 pt-12'>
+        <div className='grid grid-cols-1 mt-24'>
           <div className='flex flex-col justify-center items-center'>
-            <div className='gap-10 flex gflex-col'>
+            <div className='gap-10 flex flex-col justify-center'>
               <Button active={false} linkto={'/upload'} className={'bg-blue-600 hover:bg-blue-700'}>
                 Upload Notes
               </Button>
@@ -43,9 +44,9 @@ const Home = () => {
               </Button>
             </div>
           </div>
-          <div className='flex justify-center items-center'>
+          {/* <div className='flex justify-center items-center'>
             <img src='https://res.cloudinary.com/dg4jqvgqr/image/upload/v1718809247/collegeMate/j4krjw9p1crgf6jklgps.svg' alt='img loading' className='w-6/12 mr-12'></img>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
