@@ -14,7 +14,7 @@ const DepartmentCard = () => {
     return (
         <div>
             <div className='w-10/12 flex justify-center mx-auto mt-10'>
-                <SearchBox onSearch={setSearchQuery}  />
+                <SearchBox onSearch={setSearchQuery}  placeholder="Search Departments"/>
             </div>
             <div className='w-10/12 mx-auto m-6'>
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-4'>
@@ -28,7 +28,7 @@ const DepartmentCard = () => {
                                 {/* Lower Part */}
                                 <div className='w-full h-24 bg-[#EDF4FB] flex justify-center items-center'>
                                     <Button active={false} linkto={`/courses/${course.name}` }>
-                                        Access Course
+                                        Select Department
                                     </Button>
                                 </div>
                             </div>

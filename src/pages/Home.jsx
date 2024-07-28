@@ -34,12 +34,12 @@ const Home = () => {
         </div>
         <div className='grid grid-cols-2 pt-12'>
           <div className='flex flex-col justify-center items-center'>
-            <div className='gap-10 flex flex-col'>
-              <Button active={false} linkto={'/1styearnotes'} className={'bg-blue-600 hover:bg-blue-700'}>
-                1st year Notes
+            <div className='gap-10 flex gflex-col'>
+              <Button active={false} linkto={'/upload'} className={'bg-blue-600 hover:bg-blue-700'}>
+                Upload Notes
               </Button>
               <Button active={false} linkto={'/courses'} className={'bg-blue-600 hover:bg-blue-700'}>
-                Department Notes
+                Find Notes
               </Button>
             </div>
           </div>

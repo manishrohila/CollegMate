@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import SubjectCard from './SubjectCard';
+import CourseCard from './CourseCard';
+import SearchBox from '../../common/SearchBox';
 import { department } from '../../../Data/Department';
 
 const Course = () => {
     const { Department } = useParams();
     const [subjects, setSubjects] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
         const dept = department.find(d => d.name === Department);
@@ -14,15 +16,25 @@ const Course = () => {
         }
     }, [Department]);
 
+    // Filter subjects based on search query
+    const filteredSubjects = subjects.filter(subject =>
+        subject.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
     return (
         <div className='min-h-[calc(100vh-3.2rem)]'>
             <div className='h-20 bg-[#86C3FB] text-4xl font-medium font-sans flex items-center justify-center'>
                 {Department}
             </div>
-            <div>
-                {subjects.map((subject, index) => (
-                    <SubjectCard key={index} Department={Department} subject={subject} />
-                ))}
+            <div className='w-10/12 flex justify-center mx-auto mt-10'>
+                <SearchBox onSearch={setSearchQuery} placeholder="Search subjects..." />
+            </div>
+            <div className='w-10/12 mx-auto m-6'>
+                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-4'>
+                    {filteredSubjects.map((subject, index) => (
+                        <CourseCard key={index} Department={Department} subject={subject} />
+                    ))}
+                </div>
             </div>
         </div>
     );
