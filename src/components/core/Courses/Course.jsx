@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { apiConnector } from '../../../services/apiConnector';
 import { fileUploadEndpoints } from '../../../services/apis';
 import SubjectCard from './SubjectCard';
+import CourseCard from './CourseCard';
 
 const { GET_SUBJECT_NAME_API } = fileUploadEndpoints;
 const Course = () => {
@@ -36,13 +37,11 @@ const Course = () => {
             <div className='h-20 bg-[#86C3FB] text-4xl font-medium font-sans flex items-center justify-center'>
                 {Department}
             </div>
-            <div className='grid grid-cols-3 text-lg w-10/12 mx-auto mt-4 gap-x-8 items-center'>
 
-                <button className='bg-green-300 rounded font-medium'>2nd Year</button>
-                <button className='bg-green-300 rounded font-medium'>3rd Year</button>
-                <button className='bg-green-300 rounded font-medium'>4th Year</button>
-
+            <div >
+                <CourseCard/>
             </div>
+            
             <div>
                
                     {subjects.map((subject, index) => (
