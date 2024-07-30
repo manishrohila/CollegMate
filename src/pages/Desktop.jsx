@@ -5,7 +5,7 @@ const Desktop = () => {
   const { user } = useSelector((state) => state.profile)
     
   return (
-    <div className="min-h-[calc(100vh-3.2rem)] flex justify-center flex-col bg-gradient-to-b from-yellow-100 via-yellow-150 to-yellow-200">
+    <div className="min-h-[calc(100vh-3.2rem)] flex justify-center flex-col bg-gradient-to-r from-cyan-200 to-blue-400 ...">
       <div className="text-4xl flex justify-center items-center pt-10 italic font-bold font-serif">
         <p>WELCOME, {user?.firstName.toUpperCase()} !</p>
       </div>

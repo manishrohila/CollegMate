@@ -9,7 +9,7 @@ const DirectUploads = () => {
   const { user } = useSelector((state) => state.profile);
   const { token } = useSelector((state) => state.auth);
 
-  const [departmentName, setDepartmentName] = useState('EIE Department');
+  const [departmentName, setDepartmentName] = useState('Electronics & Instrumentation Department');
   const [departmentYear, setDepartmentYear] = useState('1st year');
   const [subjects, setSubjects] = useState([]);
 

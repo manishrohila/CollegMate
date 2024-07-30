@@ -49,12 +49,11 @@ exports.fileUploadUsingDriveLink = async (req, res) => {
     
   try {
     console.log("Printing req.body", req.body);
-     const {firstName,lastName, Department , subject , year , fileName,driveLink} = req.body;
-     console.log("print req user",req.user);
+     const {firstName,lastName, Department , subject , year , fileName, driveLink} = req.body;
+    // console.log("print req user",req.user);
      const userId = req.user.id;
     //console.log("printing file ", req.file);
-     console.log("Printing user id ", userId);
-
+     //console.log("Printing user id ", userId);
      const newFile = new File({
          firstName,
          lastName,
@@ -125,12 +124,12 @@ exports.getSubjectName = async (req, res) => {
 exports.getFilesByDepartmentAndSubject = async (req, res) => {
   try {
       const { Department, subjectName } = req.query;
-
+    console.log("print req.query",req.query);
       console.log("Department:", Department, "Subject Name:", subjectName);
       if (!Department || !subjectName) {
           return res.status(400).json({
               success: false,
-              message: "Missing required parameters: department and/or subjectName",
+              message: "Missing required parameters: Department or Subject Name",
           });
       }
 
@@ -139,7 +138,7 @@ exports.getFilesByDepartmentAndSubject = async (req, res) => {
           subject: subjectName
       });
 
-      //console.log("Files found:", files);
+      console.log("Files found:", files);
       return res.status(200).json({
           success: true,
           message: "Files found",

@@ -32,14 +32,22 @@ const fileSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  fileName:{
+    type: String,
+    trim : true,
+  },
   fileName: {
     type: String,
   },
   filePath: {
     type: String,
   },
-  DriveLink:{
+  driveLink:{
     type:String,
+  },
+  description:{
+    type:String,
+    trim:true,
   },
   uploadedAt: {
     type: Date,

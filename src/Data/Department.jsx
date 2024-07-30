@@ -1,13 +1,13 @@
 export const department = [
     {
         id: 1,
-        name: "Aeronautical Engineering Department",
-        subjects: ["Aerodynamics", "Flight Mechanics", "Aircraft Structures", "Propulsion", "Avionics"]
+        name: "Agricultural Engineering Department",
+        subjects: ["Soil Science", "Agricultural Machinery", "Irrigation Engineering", "Post Harvest Technology", "Agricultural Process Engineering"]
     },
     {
         id: 2,
-        name: "Agricultural Engineering Department",
-        subjects: ["Soil Science", "Agricultural Machinery", "Irrigation Engineering", "Post Harvest Technology", "Agricultural Process Engineering"]
+        name: "Electronics and Instrumentation Department",
+        subjects: ["Digital Signal Processing", "Artificial intelligence and expert", "Optoelectronic Instrumentation", "Industrial Process Control and Automation", "Avionics"]
     },
     {
         id: 3,

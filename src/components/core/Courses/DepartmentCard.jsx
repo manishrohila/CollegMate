@@ -23,7 +23,7 @@ const DepartmentCard = () => {
                             <div key={index} className='border-2 border-black bg-white flex flex-col justify-center items-center w-full h-64'>
                                 {/* Upper Part */}
                                 <div className='w-full h-40 bg-[#329BFA] flex justify-center items-center'>
-                                    <p className='text-black font-medium text-xl text-center'>{course.name}</p>
+                                    <p className='text-white font-medium text-xl text-center'>{course.name}</p>
                                 </div>
                                 {/* Lower Part */}
                                 <div className='w-full h-24 bg-[#EDF4FB] flex justify-center items-center'>

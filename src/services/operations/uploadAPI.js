@@ -46,7 +46,7 @@ export function localfileUpload(formData, token) {
 export function fileUploadUsingDriveLink(formData, token) {
     return async (dispatch) => {
         try {
-            console.log("printing formData" , formData);
+            console.log("printing form Data" , formData);
             const response = await apiConnector("POST", FILE_UPLOAD_USING_DRIVE_LINK, formData, {
                 headers: {
                     'Content-Type': 'application/json',

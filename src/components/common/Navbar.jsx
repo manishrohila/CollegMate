@@ -39,7 +39,7 @@ const Navbar = () => {
                         <p
                           className={`${matchRoute(link?.path)
                             ? "text-blue-700"
-                            : "text-[#2d2f31]"
+                            :  "text-[#2d2f31]"
                             }`}
                         >
                           {link.title}
