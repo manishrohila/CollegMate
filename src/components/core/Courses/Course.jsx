@@ -23,7 +23,7 @@ const Course = () => {
 
     return (
         <div className='min-h-[calc(100vh-3.2rem)]'>
-            <div className='h-20 bg-[#86C3FB] text-4xl font-medium font-sans flex items-center justify-center'>
+            <div className='h-20 bg-[#86C3FB]  text-center text-xl md:text-4xl font-medium font-sans flex items-center justify-center'>
                 {Department}
             </div>
             <div className='w-10/12 flex justify-center mx-auto mt-10'>

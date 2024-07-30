@@ -88,9 +88,9 @@ const DirectUploads = () => {
   }));
 
   return (
-    <div className='min-h-[calc(100vh-3.2rem)] flex w-7/12 mx-auto pt-36'>
+    <div className='min-h-[calc(100vh-3.2rem)] flex w-7/12 mx-auto mb-16 md:pt-36  pt-20'>
       <form className='flex w-full flex-col gap-y-4 mt-4' encType='multipart/form-data' onSubmit={handleOnSubmit}>
-        <div className='grid grid-cols-2 gap-x-4'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-4'>
           <label>
             <p className='mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-900'>
               First Name <sup className='text-pink-900'>*</sup>
@@ -120,7 +120,7 @@ const DirectUploads = () => {
             />
           </label>
         </div>
-        <div className='grid grid-cols-2 gap-x-4'>
+        <div className='grid md:grid-cols-2 gap-x-4 gap-y-4'>
           <label className='mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-900'>
             <p>
               Department <sup className='text-pink-900'>*</sup>
@@ -148,7 +148,7 @@ const DirectUploads = () => {
             />
           </label>
         </div>
-        <div className='grid grid-cols-2 gap-x-4'>
+        <div className='grid md:grid-cols-2 gap-x-4 gap-y-4'>
           <label className='mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-900'>
             <p>
               Year <sup className='text-pink-900'>*</sup>

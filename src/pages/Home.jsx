@@ -8,7 +8,7 @@ const Home = () => {
       <div className='bg-white min-h-screen pt-12'>
         <div className="flex  justify-center items-center">
 
-          <div className="flex justify-center text-7xl font-medium font-sans bg-gradient-to-r from-pink-600 to-blue-600 bg-clip-text text-transparent">
+          <div className="flex justify-center text-4xl md:text-7xl font-medium font-sans bg-gradient-to-r from-pink-600 to-blue-600 bg-clip-text text-transparent w-5/6 md:w-full text-center">
             <Typewriter
               onInit={(typewriter) => {
                 typewriter.typeString('Unlock Your Potential Together')
@@ -28,10 +28,10 @@ const Home = () => {
           </div>
          
         </div>
-        <div className="text-4xl text-[#2d2f31] flex flex-col mt-32 justify-center items-center">
-            <p>Access and share the best study notes, past </p>
-            <p>papers, and resources from your peers and </p>
-            <p>professors.</p>
+        <div className="md:text-4xl text-2xl text-[#2d2f31] w-10/12 md:w-7/12 text-center mx-auto flex flex-col mt-16 md:mt-32 justify-center items-center">
+            <p>Access and share the best study notes, past 
+            papers, and resources from your peers and 
+            professors.</p>
           </div>
         <div className='grid grid-cols-1 mt-24'>
           <div className='flex flex-col justify-center items-center'>
