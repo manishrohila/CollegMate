@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Button from './Button';
 import { Link, matchPath, useLocation } from 'react-router-dom';
 import { NavBarLinks } from '../../Data/navbar-links';
@@ -10,20 +10,45 @@ const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const location = useLocation();
   const { token } = useSelector((state) => state.auth);
+  const menuRef = useRef(null); // Reference to the menu container
 
   const closeMenu = () => setShowMenu(false);
+
+  // Menu items to show based on login status
   const menu = [
-    { title: "Login", path: "/login" },
-    { title: "Sign Up", path: "/signup" },
     { title: "Home", path: "/" },
     { title: "Courses", path: "/courses" },
     { title: "Upload", path: "/upload" },
     { title: "Contact Us", path: "/contact" },
+    ...(!token ? [
+      { title: "Login", path: "/login" },
+      { title: "Sign Up", path: "/signup" },
+    ] : []),
   ];
 
   const matchRoute = (route) => {
     return matchPath({ path: route }, location.pathname);
   }
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        closeMenu();
+      }
+    };
+
+    // Add event listener when the menu is open
+    if (showMenu) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    // Clean up the event listener on component unmount or when menu state changes
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showMenu]);
 
   return (
     <div className={`flex h-16 items-center bg-white justify-center border-b-[1px] border-b-richblack-700 ${location.pathname === "/" ? "bg-richblack-800" : ""} transition-all duration-200`}>
@@ -71,7 +96,10 @@ const Navbar = () => {
         {/* For Mobiles */}
         <div className='md:hidden relative'>
           <GiHamburgerMenu onClick={() => setShowMenu(!showMenu)} />
-          <div className={`fixed top-0 right-0 h-full bg-white border border-gray-300 rounded shadow-lg z-50 transition-transform duration-300 ${showMenu ? 'transform translate-x-0' : 'transform translate-x-full'}`}>
+          <div
+            ref={menuRef} // Attach the ref here
+            className={`fixed top-0 right-0 h-full bg-white border border-gray-300 rounded shadow-lg z-50 transition-transform duration-300 ${showMenu ? 'transform translate-x-0' : 'transform translate-x-full'}`}
+          >
             {showMenu && (
               <div className='flex flex-col'>
                 {menu.map((item, index) => (
