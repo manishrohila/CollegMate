@@ -1,177 +1,273 @@
 export const department = [
     {
-        id: 1,
-        name: "Agricultural Engineering Department",
-        subjects: ["Soil Science", "Agricultural Machinery", "Irrigation Engineering", "Post Harvest Technology", "Agricultural Process Engineering"]
-    },
-    {
-        id: 2,
-        name: "Electronics and Instrumentation Department",
-        subjects: ["Digital Signal Processing", "Artificial intelligence and expert", "Optoelectronic Instrumentation", "Industrial Process Control and Automation", "Avionics"]
-    },
-    {
-        id: 3,
-        name: "Automobile Engineering Department",
-        subjects: ["Vehicle Dynamics", "Automotive Engines", "Automotive Electronics", "Vehicle Design", "Alternative Fuels"]
-    },
-    {
         id: 4,
         name: "Biomedical Engineering Department",
-        subjects: ["Biomedical Instrumentation", "Medical Imaging", "Biomechanics", "Biomaterials", "Clinical Engineering"]
-    },
-    {
-        id: 5,
-        name: "Biotechnology Department",
-        subjects: ["Genetics", "Microbiology", "Bioprocess Engineering", "Molecular Biology", "Bioinformatics"]
-    },
-    {
-        id: 6,
-        name: "Ceramic Engineering Department",
-        subjects: ["Ceramic Processing", "Glass Engineering", "Refractories", "Advanced Ceramics", "Ceramic Materials"]
+        subjects: ["Biomedical Instrumentation", "Medical Imaging", "Biomechanics", "Biomaterials", "Clinical Engineering", "Previous Year Paper"]
     },
     {
         id: 7,
         name: "Chemical Engineering Department",
-        subjects: ["Chemical Reaction Engineering", "Process Control", "Transport Phenomena", "Thermodynamics", "Separation Processes"]
+        subjects: ["Chemical Reaction Engineering", "Process Control", "Transport Phenomena", "Thermodynamics", "Separation Processes", "Previous Year Paper"]
     },
     {
-        id: 8,
-        name: "Civil Engineering Department",
-        subjects: ["Structural Analysis", "Geotechnical Engineering", "Transportation Engineering", "Water Resources Engineering", "Construction Management"]
-    },
-    {
-        id: 9,
-        name: "Computer Science and Engineering Department",
-        subjects: ["Data Structures", "Algorithms", "Operating Systems", "Database Systems", "Computer Networks"]
-    },
-    {
-        id: 10,
-        name: "Electrical and Electronics Engineering Department",
-        subjects: ["Circuit Theory", "Power Systems", "Control Systems", "Digital Electronics", "Electrical Machines"]
+        id: 2,
+        name: "Electronics and Instrumentation Department",
+        subjects: [
+            "Digital Signal Processing",
+            "Artificial Intelligence and Expert",
+            "Optoelectronic Instrumentation",
+            "Industrial Process Control and Automation",
+             "Analog Electronics and Linear Integrated Circuits",
+            "Electrical Measurement and Measuring Instruments",
+            "Sensors and Transducers",
+            "Electronic Instrumentation",
+            "Linear Control System",
+            "Microprocessor and Microcontroller",
+            "Industrial Instrumentation",
+            "Data Communication and Networking",
+            "Industrial Electronics",
+            "Communication Theory and Telemetry",
+            "Data Structures and Algorithms",
+            "Digital Electronics",
+            "Numerical Methods and Linear Algebra",
+            "Engineering Economics and Costing",
+            "Industrial Management",
+            "Open/Departmental Elective 3","Previous Year Paper",
+        ]
     },
     {
         id: 11,
         name: "Electrical Engineering Department",
-        subjects: ["Electric Circuits", "Power Electronics", "Electromagnetic Fields", "Power Systems", "Control Systems"]
+        subjects: [
+            "Electric Circuits",
+            "Power Electronics",
+            "Electromagnetic Fields",
+            "Power Systems",
+            "Control Systems",
+            
+            "Engineering Mathematics III",
+            "Electrical Measurement and Measuring Instruments",
+            "Network Analysis",
+            "Digital Electronics",
+            "Object Oriented Programming",
+            "Signals & Systems",
+            "Seminar (Soft Skill Based)",
+            "Electrical Machine-I",
+            "Power System I",
+            "Data Structures & Algorithms",
+            "Numerical Methods and Analysis",
+            "Analog Electronics",
+            "Elective-I",
+            "Electrical Machine-II",
+            "Power Electronics",
+            "Microprocessors and Microcontroller",
+            "Control System-I",
+            "Electromagnetic Field Theory",
+            "Seminar",
+            "Power System II",
+            "Digital Signal Processing",
+            "Industrial Instrumentation",
+            "Principle of Communication",
+            "Electrical Drives",
+            "Engineering Economics",
+            "Elective II",
+            "Elective III",
+            "Previous Year Paper",
+
+        ]
     },
     {
         id: 12,
         name: "Electronics and Communication Engineering Department",
-        subjects: ["Analog Electronics", "Digital Signal Processing", "Microprocessors", "Communication Systems", "VLSI Design"]
+        subjects: [
+            "Analog Electronics",
+            "Digital Signal Processing",
+            "Microprocessors",
+            "Communication Systems",
+            "VLSI Design",
+            
+            "Mathematics III",
+            "Data Structures and Algorithms",
+            "Semiconductor Devices",
+            "Analog Electronic Circuits-I",
+            "Network Analysis and Synthesis",
+            "Signals & Systems",
+            "Engineering Economics & Accounts",
+            "Analog Electronic Circuits-II",
+            "Electromagnetic Theory & Antennas",
+            "Probability and Random Processes",
+            "Digital Electronics",
+            "Control Systems",
+            "Industrial Management",
+            "Analog and Digital Communication",
+            "Electronic Instrumentation & Measurement",
+            "Microwave Engineering",
+            "Optical Fibre Communication",
+            "VLSI Technology",
+            "Information Theory & Coding",
+            "Data Communication Network",
+            "Wireless Communication",
+            "Elective-I (Departmental)",
+            "Elective-II (Departmental/Open)",
+            "Project Preliminary",
+            "Industrial Training and Seminar",
+            "Previous Year Paper",
+        ]
     },
     {
-        id: 13,
-        name: "Engineering Physics Department",
-        subjects: ["Quantum Mechanics", "Solid State Physics", "Electromagnetic Theory", "Thermodynamics", "Materials Science"]
+        id: 9,
+        name: "Computer Science and Engineering Department",
+        subjects: ["Data Structures", "Algorithms", "Operating Systems", "Database Systems", "Computer Networks", "Previous Year Paper"]
     },
     {
-        id: 14,
-        name: "Environmental Engineering Department",
-        subjects: ["Water Supply Engineering", "Waste Management", "Air Pollution Control", "Environmental Chemistry", "Environmental Impact Assessment"]
-    },
-    {
-        id: 15,
-        name: "Geotechnical Engineering Department",
-        subjects: ["Soil Mechanics", "Foundation Engineering", "Geotechnical Earthquake Engineering", "Rock Mechanics", "Geosynthetics"]
-    },
-    {
-        id: 16,
-        name: "Industrial Engineering Department",
-        subjects: ["Operations Research", "Production Planning", "Quality Control", "Supply Chain Management", "Ergonomics"]
-    },
-    {
-        id: 17,
-        name: "Information Technology Department",
-        subjects: ["Data Structures", "Web Technologies", "Software Engineering", "Network Security", "Machine Learning"]
-    },
-    {
-        id: 18,
-        name: "Instrumentation and Control Engineering Department",
-        subjects: ["Sensors and Transducers", "Control Systems", "Process Instrumentation", "Industrial Automation", "Embedded Systems"]
-    },
-    {
-        id: 19,
-        name: "Marine Engineering Department",
-        subjects: ["Marine Engines", "Naval Architecture", "Marine Electrical Systems", "Ship Structures", "Marine Pollution"]
-    },
-    {
-        id: 20,
-        name: "Materials Science and Engineering Department",
-        subjects: ["Materials Characterization", "Polymer Science", "Nanomaterials", "Metallurgy", "Composite Materials"]
-    },
-    {
-        id: 21,
-        name: "Mathematics Department",
-        subjects: ["Calculus", "Linear Algebra", "Probability and Statistics", "Differential Equations", "Numerical Methods"]
+        id: 8,
+        name: "Civil Engineering Department",
+        subjects: [
+            "Structural Analysis",
+            "Geotechnical Engineering",
+            "Transportation Engineering",
+            "Water Resources Engineering",
+            "Construction Management",
+          
+            "Mechanics of Solids",
+            "Engineering Geology",
+            "Mechanics of Fluids",
+            "Value Education, Ethics, and Environmental Studies",
+            "Mathematics - III",
+            "Humanities - III",
+            "Design of Structures",
+            "Building Materials",
+            "Construction and Services",
+            "Surveying",
+            "Structural Analysis - II",
+            "Design of Structures - II",
+            "Water Resources Engineering - I",
+            "Geotechnical Engineering - I",
+            "Transportation Engineering - I",
+            "Environmental Engineering - I",
+            "Civil Engineering Estimation, Costing, and Specification",
+            "Design of Structures - III",
+            "Water Resources Engineering - II",
+            "Geotechnical Engineering - II",
+            "Transportation Engineering - II",
+            "Environmental Engineering - II",
+            "Construction Planning and Management",
+            "Data Structures and Numerical Methods",
+            "H.S.S Elective",
+            "Previous Year Paper",
+        ]
     },
     {
         id: 22,
         name: "Mechanical Engineering Department",
-        subjects: ["Thermodynamics", "Fluid Mechanics", "Machine Design", "Heat Transfer", "Manufacturing Processes"]
-    },
-    {
-        id: 23,
-        name: "Mechatronics Engineering Department",
-        subjects: ["Robotics", "Microcontrollers", "Control Systems", "Mechatronic System Design", "Sensors and Actuators"]
-    },
-    {
-        id: 24,
-        name: "Metallurgical Engineering Department",
-        subjects: ["Physical Metallurgy", "Extractive Metallurgy", "Corrosion Engineering", "Materials Characterization", "Welding Technology"]
-    },
-    {
-        id: 25,
-        name: "Mining Engineering Department",
-        subjects: ["Mine Ventilation", "Rock Mechanics", "Mining Machinery", "Surface Mining", "Mine Safety"]
-    },
-    {
-        id: 26,
-        name: "Nanotechnology Engineering Department",
-        subjects: ["Nanomaterials", "Nanofabrication", "Nanoelectronics", "Nanobiotechnology", "Nanophotonics"]
-    },
-    {
-        id: 27,
-        name: "Nuclear Engineering Department",
-        subjects: ["Nuclear Physics", "Radiation Protection", "Nuclear Reactor Design", "Nuclear Materials", "Thermal Hydraulics"]
-    },
-    {
-        id: 28,
-        name: "Petroleum Engineering Department",
-        subjects: ["Reservoir Engineering", "Petroleum Geology", "Drilling Engineering", "Petroleum Production", "Petroleum Refining"]
-    },
-    {
-        id: 29,
-        name: "Physics Department",
-        subjects: ["Classical Mechanics", "Electromagnetism", "Quantum Mechanics", "Statistical Physics", "Optics"]
+        subjects: [
+            "Thermodynamics",
+            "Fluid Mechanics",
+            "Machine Design",
+            "Heat Transfer",
+            "Manufacturing Processes",
+            "Previous Year Paper",
+            "Basic Engineering Thermodynamics",
+            "Engineering Materials",
+            "Fluid Mechanics-I",
+            "Mathematics-III",
+            "Applied Electrical and Electronics Engineering",
+            "Strength of Materials",
+            "Applied Thermodynamics",
+            "Kinematics of Machine",
+            "Fluid Mechanics-II",
+            "Manufacturing Technology-I",
+            "Numerical Methods & Computer Programming",
+            "Design of Machine Elements-I",
+            "Heat & Mass Transfer",
+            "Design of Machine Elements-II",
+            "Manufacturing Technology-II",
+            "Fluid Machinery",
+            "Vibration and Control",
+            "Mechanical Measurement & Instrumentation",
+            "Dynamics of Machines",
+            "Advanced Manufacturing Processes",
+            "Refrigeration & Air Conditioning",
+            "I.C. Engines",
+            "Thermal Power Engineering",
+            "Industrial Engineering & Management",
+            "Environmental Engineering (Mandatory Course)",
+            "Elective-I (Power Plant Engineering)",
+            "Elective-I (Industrial Tribology)",
+            "Elective-II (Automobile Engineering)",
+            "Elective-II (Product Design for Manufacturability and Assembly)",
+            "Mechanical System Design & Industrial Automation",
+            "Entrepreneurship Development",
+            "Elective-III (Computational Fluid Dynamics)",
+            "Elective-III (Additive Manufacturing)",
+            "Elective-IV (Powder Metallurgy)",
+            "Elective-IV (CAD and Geometric Modeling)",
+            "Elective-V (Advanced Machine Design)",
+            "Elective-V (Boundary Layer Theory)",
+            "Previous Year Paper",
+        ]
     },
     {
         id: 30,
         name: "Production Engineering Department",
-        subjects: ["Manufacturing Processes", "Operations Management", "Quality Control", "Industrial Automation", "Tool Design"]
+        subjects: [
+            "Manufacturing Processes",
+            "Operations Management",
+            "Quality Control",
+            "Industrial Automation",
+            "Tool Design",
+            
+            "Engineering Thermodynamics",
+            "Solid Mechanics",
+            "Fluid Mechanics",
+            "Manufacturing Processes I",
+            "Electrical Machines",
+            "Solid Mechanics Laboratory",
+            "Thermal Power Engineering",
+            "Numerical Methods for Computing",
+            "Plant Layout & Material Handling",
+            "Measurement and Instrumentation",
+            "Mechanics of Machines",
+            "Engineering Materials",
+            "Thermal Power Engineering Laboratory",
+            "Design of Machine Elements",
+            "Ergonomics and Work System Design",
+            "Production Planning and Control",
+            "Computer Aided Design and Manufacturing",
+            "Manufacturing Processes II",
+            "Machine Tool System",
+            "Operations Research",
+            "Automation, CNC and Robotics",
+            "Reliability Engineering and Plant Maintenance",
+            "Non-Traditional Manufacturing",
+            "Production and Quality Management",
+            "Financial Management and Costing",
+            "Previous Year Paper",
+        ]
     },
     {
-        id: 31,
-        name: "Robotics Engineering Department",
-        subjects: ["Robotics", "Machine Learning", "Control Systems", "Robot Kinematics", "Automation"]
+        id: 16,
+        name: "Industrial Engineering Department",
+        subjects: ["Operations Research", "Production Planning", "Quality Control", "Supply Chain Management", "Ergonomics", "Previous Year Paper"]
     },
     {
-        id: 32,
-        name: "Structural Engineering Department",
-        subjects: ["Structural Analysis", "Reinforced Concrete Design", "Steel Structures", "Earthquake Engineering", "Construction Materials"]
+        id: 21,
+        name: "Mathematics Department",
+        subjects: ["Calculus", "Linear Algebra", "Probability and Statistics", "Differential Equations", "Numerical Methods", "Previous Year Paper"]
     },
     {
-        id: 33,
-        name: "Telecommunication Engineering Department",
-        subjects: ["Telecommunication Systems", "Signal Processing", "Wireless Communication", "Network Theory", "Fiber Optics"]
-    },
-    {
-        id: 34,
-        name: "Textile Engineering Department",
-        subjects: ["Textile Fibers", "Yarn Manufacturing", "Fabric Manufacturing", "Textile Testing", "Textile Chemistry"]
+        id: 29,
+        name: "Physics Department",
+        subjects: ["Classical Mechanics", "Electromagnetism", "Quantum Mechanics", "Statistical Physics", "Optics", "Previous Year Paper"]
     },
     {
         id: 35,
-        name: "Transportation Engineering Department",
-        subjects: ["Traffic Engineering", "Highway Engineering", "Railway Engineering", "Airport Engineering", "Pavement Design"]
+        name: "Management and Humanities and Social Science Department",
+        subjects: ["Management Principles", "Organizational Behavior", "Human Resource Management", "Ethics", "Social Sciences", "Previous Year Paper"]
+    },
+    {
+        id: 18,
+        name: "Chemistry Department",
+        subjects: ["Organic Chemistry", "Inorganic Chemistry", "Physical Chemistry", "Analytical Chemistry", "Biochemistry", "Previous Year Paper"]
     }
 ];
