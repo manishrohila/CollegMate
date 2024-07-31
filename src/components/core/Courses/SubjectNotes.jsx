@@ -36,10 +36,10 @@ const SubjectNotes = () => {
 
   return (
     <div className='min-h-[calc(100vh-3.2rem)]'>
-      <div className='h-20 bg-[#86C3FB] text-4xl font-medium font-sans flex items-center justify-center'>
+      <div className='h-20 bg-[#86C3FB]  text-lg md:text-4xl  font-medium font-sans flex items-center justify-center'>
         {`${Department} - ${subjectName}`}
       </div>
-      <div className='grid grid-cols-3 text-lg w-10/12 mx-auto mt-4 gap-x-8 items-center'>
+      <div className='grid md:grid-cols-3  w-10/12 mx-auto mt-4 gap-x-8 items-center'>
         {files.length > 0 ? (
           files.map((file, index) => (
             <div key={index} className=' bg-gradient-to-r from-cyan-200 to-blue-300 ...  text-sm rounded font-medium p-4 m-2'>
