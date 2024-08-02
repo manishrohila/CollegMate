@@ -2,12 +2,26 @@ export const department = [
     {
         id: 4,
         name: "Biomedical Engineering Department",
-        subjects: ["Biomedical Instrumentation", "Medical Imaging", "Biomechanics", "Biomaterials", "Clinical Engineering", "Previous Year Paper"]
+        subjects: [
+            "Biomedical Instrumentation",
+            "Medical Imaging",
+            "Biomechanics",
+            "Biomaterials",
+            "Clinical Engineering",
+            "Previous Year Paper"
+        ]
     },
     {
         id: 7,
         name: "Chemical Engineering Department",
-        subjects: ["Chemical Reaction Engineering", "Process Control", "Transport Phenomena", "Thermodynamics", "Separation Processes", "Previous Year Paper"]
+        subjects: [
+            "Chemical Reaction Engineering",
+            "Process Control",
+            "Transport Phenomena",
+            "Thermodynamics",
+            "Separation Processes",
+            "Previous Year Paper"
+        ]
     },
     {
         id: 2,
@@ -17,7 +31,7 @@ export const department = [
             "Artificial Intelligence and Expert",
             "Optoelectronic Instrumentation",
             "Industrial Process Control and Automation",
-             "Analog Electronics and Linear Integrated Circuits",
+            "Analog Electronics and Linear Integrated Circuits",
             "Electrical Measurement and Measuring Instruments",
             "Sensors and Transducers",
             "Electronic Instrumentation",
@@ -32,7 +46,8 @@ export const department = [
             "Numerical Methods and Linear Algebra",
             "Engineering Economics and Costing",
             "Industrial Management",
-            "Open/Departmental Elective 3","Previous Year Paper",
+            "Open/Departmental Elective 3",
+            "Previous Year Paper"
         ]
     },
     {
@@ -44,7 +59,6 @@ export const department = [
             "Electromagnetic Fields",
             "Power Systems",
             "Control Systems",
-            
             "Engineering Mathematics III",
             "Electrical Measurement and Measuring Instruments",
             "Network Analysis",
@@ -72,8 +86,7 @@ export const department = [
             "Engineering Economics",
             "Elective II",
             "Elective III",
-            "Previous Year Paper",
-
+            "Previous Year Paper"
         ]
     },
     {
@@ -85,7 +98,6 @@ export const department = [
             "Microprocessors",
             "Communication Systems",
             "VLSI Design",
-            
             "Mathematics III",
             "Data Structures and Algorithms",
             "Semiconductor Devices",
@@ -111,13 +123,20 @@ export const department = [
             "Elective-II (Departmental/Open)",
             "Project Preliminary",
             "Industrial Training and Seminar",
-            "Previous Year Paper",
+            "Previous Year Paper"
         ]
     },
     {
         id: 9,
         name: "Computer Science and Engineering Department",
-        subjects: ["Data Structures", "Algorithms", "Operating Systems", "Database Systems", "Computer Networks", "Previous Year Paper"]
+        subjects: [
+            "Data Structures",
+            "Algorithms",
+            "Operating Systems",
+            "Database Systems",
+            "Computer Networks",
+            "Previous Year Paper"
+        ]
     },
     {
         id: 8,
@@ -128,7 +147,6 @@ export const department = [
             "Transportation Engineering",
             "Water Resources Engineering",
             "Construction Management",
-          
             "Mechanics of Solids",
             "Engineering Geology",
             "Mechanics of Fluids",
@@ -154,7 +172,7 @@ export const department = [
             "Construction Planning and Management",
             "Data Structures and Numerical Methods",
             "H.S.S Elective",
-            "Previous Year Paper",
+            "Previous Year Paper"
         ]
     },
     {
@@ -204,7 +222,7 @@ export const department = [
             "Elective-IV (CAD and Geometric Modeling)",
             "Elective-V (Advanced Machine Design)",
             "Elective-V (Boundary Layer Theory)",
-            "Previous Year Paper",
+            "Previous Year Paper"
         ]
     },
     {
@@ -216,7 +234,6 @@ export const department = [
             "Quality Control",
             "Industrial Automation",
             "Tool Design",
-            
             "Engineering Thermodynamics",
             "Solid Mechanics",
             "Fluid Mechanics",
@@ -242,32 +259,86 @@ export const department = [
             "Non-Traditional Manufacturing",
             "Production and Quality Management",
             "Financial Management and Costing",
-            "Previous Year Paper",
+            "Previous Year Paper"
         ]
     },
     {
         id: 16,
         name: "Industrial Engineering Department",
-        subjects: ["Operations Research", "Production Planning", "Quality Control", "Supply Chain Management", "Ergonomics", "Previous Year Paper"]
+        subjects: [
+            "Operations Research",
+            "Production Planning",
+            "Quality Control",
+            "Supply Chain Management",
+            "Ergonomics",
+            "Previous Year Paper"
+        ]
     },
     {
         id: 21,
         name: "Mathematics Department",
-        subjects: ["Calculus", "Linear Algebra", "Probability and Statistics", "Differential Equations", "Numerical Methods", "Previous Year Paper"]
+        subjects: [
+            "Calculus",
+            "Linear Algebra",
+            "Probability and Statistics",
+            "Differential Equations",
+            "Numerical Methods",
+            "Previous Year Paper"
+        ]
     },
     {
         id: 29,
         name: "Physics Department",
-        subjects: ["Classical Mechanics", "Electromagnetism", "Quantum Mechanics", "Statistical Physics", "Optics", "Previous Year Paper"]
+        subjects: [
+            "Classical Mechanics",
+            "Electromagnetism",
+            "Quantum Mechanics",
+            "Statistical Physics",
+            "Optics",
+            "Previous Year Paper"
+        ]
     },
     {
         id: 35,
         name: "Management and Humanities and Social Science Department",
-        subjects: ["Management Principles", "Organizational Behavior", "Human Resource Management", "Ethics", "Social Sciences", "Previous Year Paper"]
+        subjects: [
+            "Management Principles",
+            "Organizational Behavior",
+            "Human Resource Management",
+            "Ethics",
+            "Social Sciences",
+            "Previous Year Paper"
+        ]
     },
     {
         id: 18,
         name: "Chemistry Department",
-        subjects: ["Organic Chemistry", "Inorganic Chemistry", "Physical Chemistry", "Analytical Chemistry", "Biochemistry", "Previous Year Paper"]
+        subjects: [
+            "Organic Chemistry",
+            "Inorganic Chemistry",
+            "Physical Chemistry",
+            "Analytical Chemistry",
+            "Biochemistry",
+            "Previous Year Paper"
+        ]
+    },
+    {
+        id: 1,
+        name: "1st Year Department",
+        subjects: [
+            "Engineering Mathematics 1",
+            "Physics 1",
+            "Chemistry 1",
+            "Engineering Mechanics",
+            "Basic Electrical Engineering",
+            "Language",
+            "Engineering Mathematics 2",
+            "Physics 2",
+            "Chemistry 2",
+            "Basic Electronics",
+            "Disaster Management",
+            "Introduction to Programming",
+            "Previous Year Paper",
+        ]
     }
 ];
