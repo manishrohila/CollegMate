@@ -9,7 +9,7 @@ const DriveLinkUploads = () => {
   const { user } = useSelector((state) => state.profile);
   const { token } = useSelector((state) => state.auth);
 
-  const [departmentName, setDepartmentName] = useState('EIE Department');
+  const [departmentName, setDepartmentName] = useState('1st Year Department');
   const [departmentYear, setDepartmentYear] = useState('1st year');
   const [subjects, setSubjects] = useState([]);
 
