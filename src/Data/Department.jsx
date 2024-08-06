@@ -1,6 +1,25 @@
 export const department = [
+     {
+        id: 1,
+        name: "1st Year Department",
+        subjects: [
+            "Engineering Mathematics 1",
+            "Physics 1",
+            "Chemistry 1",
+            "Engineering Mechanics",
+            "Basic Electrical Engineering",
+            "Language",
+            "Engineering Mathematics 2",
+            "Physics 2",
+            "Chemistry 2",
+            "Basic Electronics",
+            "Disaster Management",
+            "Introduction to Programming",
+            "Previous Year Paper",
+        ]
+    },
     {
-        id: 4,
+        id: 2,
         name: "Biomedical Engineering Department",
         subjects: [
             "Biomedical Instrumentation",
@@ -12,7 +31,7 @@ export const department = [
         ]
     },
     {
-        id: 7,
+        id: 3,
         name: "Chemical Engineering Department",
         subjects: [
             "Chemical Reaction Engineering",
@@ -24,7 +43,7 @@ export const department = [
         ]
     },
     {
-        id: 2,
+        id: 4,
         name: "Electronics and Instrumentation Department",
         subjects: [
             "Digital Signal Processing",
@@ -43,15 +62,19 @@ export const department = [
             "Communication Theory and Telemetry",
             "Data Structures and Algorithms",
             "Digital Electronics",
+            "Electro Magnetic Theory",
             "Numerical Methods and Linear Algebra",
             "Engineering Economics and Costing",
             "Industrial Management",
             "Open/Departmental Elective 3",
+            "Mathematics III (M-301)",
+            "Network Theory",
+            "Signals and Systems",
             "Previous Year Paper"
         ]
     },
     {
-        id: 11,
+        id: 5,
         name: "Electrical Engineering Department",
         subjects: [
             "Electric Circuits",
@@ -90,7 +113,7 @@ export const department = [
         ]
     },
     {
-        id: 12,
+        id: 6,
         name: "Electronics and Communication Engineering Department",
         subjects: [
             "Analog Electronics",
@@ -127,7 +150,7 @@ export const department = [
         ]
     },
     {
-        id: 9,
+        id: 7,
         name: "Computer Science and Engineering Department",
         subjects: [
             "Data Structures",
@@ -176,7 +199,7 @@ export const department = [
         ]
     },
     {
-        id: 22,
+        id: 9,
         name: "Mechanical Engineering Department",
         subjects: [
             "Thermodynamics",
@@ -226,7 +249,7 @@ export const department = [
         ]
     },
     {
-        id: 30,
+        id: 10,
         name: "Production Engineering Department",
         subjects: [
             "Manufacturing Processes",
@@ -263,7 +286,7 @@ export const department = [
         ]
     },
     {
-        id: 16,
+        id: 11,
         name: "Industrial Engineering Department",
         subjects: [
             "Operations Research",
@@ -275,7 +298,7 @@ export const department = [
         ]
     },
     {
-        id: 21,
+        id: 12,
         name: "Mathematics Department",
         subjects: [
             "Calculus",
@@ -287,7 +310,7 @@ export const department = [
         ]
     },
     {
-        id: 29,
+        id: 13,
         name: "Physics Department",
         subjects: [
             "Classical Mechanics",
@@ -299,7 +322,7 @@ export const department = [
         ]
     },
     {
-        id: 35,
+        id: 14,
         name: "Management and Humanities and Social Science Department",
         subjects: [
             "Management Principles",
@@ -311,7 +334,7 @@ export const department = [
         ]
     },
     {
-        id: 18,
+        id: 15,
         name: "Chemistry Department",
         subjects: [
             "Organic Chemistry",
@@ -322,23 +345,5 @@ export const department = [
             "Previous Year Paper"
         ]
     },
-    {
-        id: 1,
-        name: "1st Year Department",
-        subjects: [
-            "Engineering Mathematics 1",
-            "Physics 1",
-            "Chemistry 1",
-            "Engineering Mechanics",
-            "Basic Electrical Engineering",
-            "Language",
-            "Engineering Mathematics 2",
-            "Physics 2",
-            "Chemistry 2",
-            "Basic Electronics",
-            "Disaster Management",
-            "Introduction to Programming",
-            "Previous Year Paper",
-        ]
-    }
+   
 ];
