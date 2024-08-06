@@ -79,6 +79,7 @@ export const department = [
             "Mathematics III (M-301)",
             "Network Theory",
             "Signals and Systems",
+            "Object Oriented Programming",
             "Previous Year Paper"
         ]
     },
