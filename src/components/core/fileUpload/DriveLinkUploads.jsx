@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
 import { department } from '../../../Data/Department';
 import { fileUploadUsingDriveLink } from '../../../services/operations/uploadAPI';
+import customStylesReactSelect from './CustomStylesReactSelect';
 
 const DriveLinkUploads = () => {
   const dispatch = useDispatch();
@@ -80,41 +81,6 @@ const DriveLinkUploads = () => {
     label: sub,
   }));
 
-  // Custom styles for the react-select component
-  const customStyles = {
-    control: (baseStyles) => ({
-      ...baseStyles,
-      backgroundColor: '#423FE5',  // Background color of the input
-      color: 'white',  // Text color
-    }),
-    input: (baseStyles) => ({
-      ...baseStyles,
-      color: 'white',  // Text color in the search box
-    }),
-    singleValue: (baseStyles) => ({
-      ...baseStyles,
-      color: 'white',  // Text color for selected option
-    }),
-    menu: (baseStyles) => ({
-      ...baseStyles,
-      backgroundColor: '#423FE5',  // Background color of the dropdown menu
-      color: 'white',  // Text color of the options
-    }),
-    option: (baseStyles, state) => ({
-      ...baseStyles,
-      backgroundColor: state.isSelected ? '#423FE5' : state.isFocused ? 'lightblue' : '#423FE5',  // Background color for selected option and on hover
-      color: state.isSelected ? 'white' : 'red',  // Text color for selected option
-      '&:hover': {
-        backgroundColor: '#423FE5',  // Background color on hover
-        color: 'white',  // Text color on hover
-      },
-    }),
-    placeholder: (baseStyles) => ({
-      ...baseStyles,
-      color: 'white',  // Text color for the placeholder
-    }),
-  };
-
   return (
     <div className='min-h-[calc(100vh-3.2rem)] flex w-7/12 mx-auto pt-20 mb-16 md:pt-36'>
       <form className='flex w-full flex-col gap-y-4 mt-4' encType='multipart/form-data' onSubmit={handleOnSubmit}>
@@ -162,7 +128,7 @@ const DriveLinkUploads = () => {
             </select>
           </label>
           <label>
-            <p className='mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-900'>
+            <p className='mb-1 text-[0.875rem] leading-[0.875rem] text-richblack-900'>
               Subject Name <sup className='text-pink-900'>*</sup>
             </p>
             <Select
@@ -170,7 +136,7 @@ const DriveLinkUploads = () => {
               value={subjectOptions.find((option) => option.value === subject)}
               onChange={handleSubjectChange}
               options={subjectOptions}
-              styles={customStyles}
+              styles={customStylesReactSelect}
               className='form-style w-full'
               placeholder='Select a subject'
               isClearable

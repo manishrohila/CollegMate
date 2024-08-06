@@ -51,7 +51,7 @@ const Navbar = () => {
   }, [showMenu]);
 
   return (
-    <div className={`flex h-16 items-center bg-white justify-center border-b-[1px] border-b-richblack-700 ${location.pathname === "/" ? "bg-richblack-800" : ""} transition-all duration-200`}>
+    <div className={`flex h-16 items-center bg-white justify-center border-b-[1px] border-b-richblack-700 ${location.pathname === "/" ? "bg-[#012152]" : ""} transition-all duration-200`}>
       {/* Logo */}
       <div className='flex w-11/12 max-w-maxContent items-center justify-between'>
         <div className='cursor-pointer'>
@@ -64,16 +64,20 @@ const Navbar = () => {
           <ul className='flex gap-x-6 font-bold'>
             {NavBarLinks.map((link, index) => (
               <li key={index}>
-                {link.title === "courses" ? (
-                  <div> courses </div>
-                ) : (
-                  <Link to={link?.path}>
-                    <p className={`${matchRoute(link?.path) ? "text-blue-700" : "text-[#2d2f31]"}`}>
-                      {link.title}
-                    </p>
-                  </Link>
-                )}
-              </li>
+                  {
+                      <Link to={link?.path}>
+                        <p
+                          className={`${matchRoute(link?.path)
+                            ? "text-blue-500"
+                            : `${ location.pathname === "/" ? "text-white " : "text-[#2d2f31]"}` 
+                            }`}
+                        >
+                          {link.title}
+                        </p>
+                      </Link>
+                    
+                  }
+                </li>
             ))}
           </ul>
         </nav>

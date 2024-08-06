@@ -38,7 +38,7 @@ const FeedbackForm = () => {
       <form className="w-full max-w-md bg-white p-8 rounded-lg shadow-md" onSubmit = {handleOnSubmit}>
 
         <div className="mb-4">
-          <label className="block mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-900">
+          <label className="block mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-900 ">
             Your Name <sup className="text-pink-900">*</sup>
           </label>
           <input
@@ -47,7 +47,7 @@ const FeedbackForm = () => {
             name="Name"
             value={Name}
             onChange={handleOnChange}
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="bg-[#fafbfc] w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter your name"
           />
         </div>
@@ -62,7 +62,7 @@ const FeedbackForm = () => {
             name="email"
             value={email}
             onChange={handleOnChange}
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="bg-[#fafbfc] w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter your email"
           />
         </div>
@@ -76,7 +76,7 @@ const FeedbackForm = () => {
             name="contactNo"
             value={contactNo}
             onChange={handleOnChange}
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="bg-[#fafbfc] w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter your contact number"
           />
         </div>
@@ -91,7 +91,7 @@ const FeedbackForm = () => {
             name="Subject"
             value={Subject}
             onChange={handleOnChange}
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="bg-[#fafbfc] w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter subject of the message"
           />
         </div>
@@ -105,7 +105,7 @@ const FeedbackForm = () => {
             name="message"
             value={message}
             onChange={handleOnChange}
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="bg-[#fafbfc] w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             rows="4"
             placeholder="Enter your message"
           ></textarea>

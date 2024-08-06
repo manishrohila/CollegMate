@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import { signUp } from '../../../services/operations/authAPI';
 
-
 const SignupForm = () => {
 
   const dispatch = useDispatch();

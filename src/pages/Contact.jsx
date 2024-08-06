@@ -9,7 +9,7 @@ const Contact = () => {
           <h1 className="text-[1.875rem] font-semibold leading-[2.375rem] text-richblack-900 text-center mb-6">
             Contact Us
           </h1>
-          <FeedbackForm />
+          <FeedbackForm/>
         </div>
       </div>
     </div>

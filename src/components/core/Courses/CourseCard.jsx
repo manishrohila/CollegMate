@@ -8,7 +8,7 @@ const CourseCard = (props) => {
         <div className='border-2 border-black bg-white flex flex-col justify-center items-center w-full h-64'>
             {/* Upper Part */}
             <div className='w-full h-32 bg-[#329BFA] flex justify-center items-center'>
-                <p className='text-white font-medium text-xl text-center'>{subject}</p>
+                <p className='text-black font-medium text-xl text-center'>{subject}</p>
             </div>
             {/* Lower Part */}
             <div className='w-full h-32 bg-[#EDF4FB] flex flex-col justify-center items-center'>

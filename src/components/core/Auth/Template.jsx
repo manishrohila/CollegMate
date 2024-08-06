@@ -2,6 +2,7 @@ import React from 'react'
 import LoginForm from './LoginForm'
 import SignupForm from './SignupForm'
 import frameImg from "../../../assets/Images/frame.png"
+
 const Template = ({title, description1, description2, image, formType}) => {
   return (
     <div className="grid min-h-[calc(100vh-3.2rem)] place-items-center">
