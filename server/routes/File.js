@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { localFileUpload, getSubjectName, getFilesByDepartmentAndSubject, fileUploadUsingDriveLink } = require("../controllers/File");
+const { localFileUpload, getSubjectName, getFilesByDepartmentAndSubject, fileUploadUsingDriveLink, getUserNotes, DeleteNote } = require("../controllers/File");
 const path = require("path");
 const fs = require("fs");
 const multer = require("multer");
@@ -31,5 +31,7 @@ router.post("/localFileUpload", auth, upload.single("file"), localFileUpload);
 router.post("/fileUploadUsingDriveLink",auth,fileUploadUsingDriveLink);
 router.get("/getSubjectName", getSubjectName);
 router.get("/getFilesByDepartmentAndSubject", getFilesByDepartmentAndSubject);
+router.get("/getUserNotes",getUserNotes);
+router.get("/DeleteNote",DeleteNote);
 
 module.exports = router;

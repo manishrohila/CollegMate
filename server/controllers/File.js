@@ -153,4 +153,64 @@ exports.getFilesByDepartmentAndSubject = async (req, res) => {
   }
 };
 
+exports.getUserNotes=async (req,res)=>
+  {
+    try {
+      const userId = req.params.userId; // Get the userId from the request parameters
+  
+      // Fetch all notes that belong to the user
+      const notes = await File.find({ user: userId });
+  
+      if (!notes || notes.length === 0) {
+        return res.status(404).json({
+          success: false,
+          message: 'No notes found for this user.',
+        });
+      }
+  
+      // Send the notes back to the client
+      res.status(200).json({
+        success: true,
+        notes,
+      });
+    } catch (error) {
+      console.error('Error fetching user notes:', error);
+      res.status(500).json({
+        success: false,
+        message: 'Server error. Could not fetch notes.',
+      });
+    }
+}
+
+exports.DeleteNote = async(req,res)=>{
+  try {
+    const noteId = req.params.noteId; // Get the noteId from the request parameters
+    const userId = req.user.id; // Assuming you're using authentication middleware and user ID is available
+
+    // Find the note by ID and check if the requesting user is the owner
+    const note = await File.findOne({ _id: noteId, user: userId });
+
+    if (!note) {
+      return res.status(404).json({
+        success: false,
+        message: 'Note not found or you do not have permission to delete this note.',
+      });
+    }
+
+    // Delete the note
+    await File.findByIdAndDelete(noteId);
+
+    // Respond with a success message
+    res.status(200).json({
+      success: true,
+      message: 'Note deleted successfully.',
+    });
+  } catch (error) {
+    console.error('Error deleting note:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Server error. Could not delete note.',
+    });
+  }
+}
 

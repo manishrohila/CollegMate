@@ -19,6 +19,7 @@ import { getUserDetails } from './services/operations/profileAPI';
 import SubjectNotes from "../src/components/core/Courses/SubjectNotes";
 import DirectUploads from './components/core/fileUpload/DirectUploads';
 import DriveLinkUploads from './components/core/fileUpload/DriveLinkUploads';
+import MyProfile from './components/core/Dashboard/MyProfile';
 
 
 export default function App() {
@@ -64,8 +65,10 @@ export default function App() {
           <PrivateRoute>
             <Desktop />
           </PrivateRoute>
-        }></Route>
-
+        }>
+          
+        </Route>
+        <Route path="dashboard/my-profile" element={<MyProfile />} />
         <Route path='/courses' element={<Courses />}></Route>
 
         <Route path='/courses/:Department' element={
