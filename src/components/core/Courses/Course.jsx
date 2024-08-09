@@ -26,7 +26,7 @@ const Course = () => {
             <div className='h-20 bg-[#86C3FB]  text-center text-xl md:text-4xl font-medium font-sans flex items-center justify-center'>
                 {Department}
             </div>
-            <div className='w-10/12 flex justify-center mx-auto mt-10'>
+            <div className='w-5/12 flex justify-center mx-auto mt-10'>
                 <SearchBox onSearch={setSearchQuery} placeholder="Search subjects..." />
             </div>
             <div className='w-10/12 mx-auto m-6'>

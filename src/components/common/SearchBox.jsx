@@ -10,7 +10,7 @@ const SearchBox = ({ onSearch, placeholder }) => {
             type="text"
             placeholder={placeholder}
             onChange={handleInputChange}
-            className="border-2 p-2 rounded-full w-full hover:border-blue-500"
+            className="border-2 p-2 rounded-full w-full hover:border-blue-500 focus:outline-none focus:border-blue-500"
         />
     );
 };
