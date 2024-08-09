@@ -51,7 +51,7 @@ const Navbar = () => {
   }, [showMenu]);
 
   return (
-    <div className={`flex h-16 items-center bg-white justify-center border-b-[1px] border-b-richblack-700 ${location.pathname === "/" ? "bg-[#012152]" : ""} transition-all duration-200`}>
+    <div className={`flex h-16 items-center bg-[#012152] justify-center border-b-[1px] border-b-richblack-700 ${location.pathname === "/" ? "bg-[#012152]" : "bg-white"} transition-all duration-200`}>
       {/* Logo */}
       <div className='flex w-11/12 max-w-maxContent items-center justify-between'>
         <div className='cursor-pointer'>
