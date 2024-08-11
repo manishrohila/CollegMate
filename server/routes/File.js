@@ -32,6 +32,6 @@ router.post("/fileUploadUsingDriveLink",auth,fileUploadUsingDriveLink);
 router.get("/getSubjectName", getSubjectName);
 router.get("/getFilesByDepartmentAndSubject", getFilesByDepartmentAndSubject);
 router.get("/getUserNotes",getUserNotes);
-router.get("/DeleteNote",DeleteNote);
+router.delete("/DeleteNote",DeleteNote);
 
 module.exports = router;

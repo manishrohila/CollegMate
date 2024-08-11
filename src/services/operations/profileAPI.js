@@ -1,9 +1,9 @@
 import toast from "react-hot-toast"
 import { apiConnector } from "../apiConnector";
-import { ProfileEndPoints } from "../apis";
+import { ProfileEndPoints,fileUploadEndpoints } from "../apis";
 import { setUser } from "../../slices/profileSlice";
 import { logout } from "./authAPI";
-
+const {DELETE_NOTE} = fileUploadEndpoints
 const {GET_USER_DETAILS}  = ProfileEndPoints
 
 export function getUserDetails(token, navigate) {
@@ -37,3 +37,23 @@ export function getUserDetails(token, navigate) {
       toast.dismiss(toastId);
   };
 }
+
+export async function deleteFile(noteId){
+  
+    const toastId = toast.loading("Loading...");
+    try {
+   
+        const response = await apiConnector("DELETE", DELETE_NOTE, {
+            params: { noteId: noteId },
+        });
+
+        if (!response.data.success) {
+            console.log('Failed to delete file:', response.data.message);
+        }
+    } catch (error) {
+        console.log('Error deleting file:', error.message);
+        toast.error("Could Not Get Uploaded Files");
+    }
+    toast.dismiss(toastId);
+  
+};
