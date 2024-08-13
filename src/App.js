@@ -2,7 +2,7 @@ import './App.css';
 import Footer from './components/common/Footer';
 import Navbar from './components/common/Navbar';
 import Home from './pages/Home';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate} from 'react-router-dom';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Desktop from './pages/Desktop';
@@ -66,9 +66,14 @@ export default function App() {
             <Desktop />
           </PrivateRoute>
         }>
-          
         </Route>
-        <Route path="dashboard/my-profile" element={<MyProfile />} />
+
+        <Route path="/dashboard/my-profile" element={
+          <PrivateRoute>
+            <MyProfile />
+          </PrivateRoute>
+        } />
+        
         <Route path='/courses' element={<Courses />}></Route>
 
         <Route path='/courses/:Department' element={

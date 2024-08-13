@@ -182,14 +182,15 @@ exports.getUserNotes=async (req,res)=>
     }
 }
 
-exports.DeleteNote = async(req,res)=>{
+exports.DeleteNote = async(req, res) => {
+  console.log('Attempting to delete note...');
   try {
-    const noteId = req.params.noteId; // Get the noteId from the request parameters
-    const userId = req.user.id; // Assuming you're using authentication middleware and user ID is available
+        const noteId = req.body.params.noteId; // Get the noteId from the request query
 
-    // Find the note by ID and check if the requesting user is the owner
-    const note = await File.findOne({ _id: noteId, user: userId });
-
+    
+    // Find the note by ID and check if it exists
+    const note = await File.findOne({ _id: noteId });
+    
     if (!note) {
       return res.status(404).json({
         success: false,
