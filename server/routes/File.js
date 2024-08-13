@@ -6,15 +6,9 @@ const fs = require("fs");
 const multer = require("multer");
 const { auth } = require("../middleware/auth");
 
-// Ensure the destination folder exists
-const filesDir = path.join(__dirname, "..", "files");
-if (!fs.existsSync(filesDir)) {
-    fs.mkdirSync(filesDir, { recursive: true });
-}
-
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, filesDir);
+        cb(null, './files');
     },
     filename: function (req, file, cb) {
         const uniqueSuffix = Date.now();

@@ -18,7 +18,7 @@ exports.localFileUpload = async (req, res) => {
             subject,
             fileName,
             filePath:files.path,
-           uploadedBy: userId, 
+            uploadedBy: userId, 
         });
         console.log("Printing new file",newFile);
 
