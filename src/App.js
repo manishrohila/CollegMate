@@ -2,7 +2,7 @@ import './App.css';
 import Footer from './components/common/Footer';
 import Navbar from './components/common/Navbar';
 import Home from './pages/Home';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate} from 'react-router-dom';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Desktop from './pages/Desktop';
@@ -19,6 +19,7 @@ import { getUserDetails } from './services/operations/profileAPI';
 import SubjectNotes from "../src/components/core/Courses/SubjectNotes";
 import DirectUploads from './components/core/fileUpload/DirectUploads';
 import DriveLinkUploads from './components/core/fileUpload/DriveLinkUploads';
+import MyProfile from './components/core/Dashboard/MyProfile';
 
 
 export default function App() {
@@ -64,8 +65,15 @@ export default function App() {
           <PrivateRoute>
             <Desktop />
           </PrivateRoute>
-        }></Route>
+        }>
+        </Route>
 
+        <Route path="/dashboard/my-profile" element={
+          <PrivateRoute>
+            <MyProfile />
+          </PrivateRoute>
+        } />
+        
         <Route path='/courses' element={<Courses />}></Route>
 
         <Route path='/courses/:Department' element={

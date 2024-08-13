@@ -4,12 +4,6 @@ import { toast } from "react-hot-toast";
 
 const { LOCAL_FILE_UPLOAD,FILE_UPLOAD_USING_DRIVE_LINK} = fileUploadEndpoints;
 
-// function logFormData(formData) {
-//     for (let pair of formData.entries()) {
-//         console.log(`hello ${pair[0]}: ${pair[1]}`);
-//     }
-// }
-
 export function localfileUpload(formData, token) {
     return async (dispatch) => {
         try {
