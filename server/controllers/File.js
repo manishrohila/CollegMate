@@ -29,7 +29,7 @@ exports.localFileUpload = async (req, res) => {
                 message: "file uploaded and data saved",
             });
         } catch (error) {
-            console.log("Printing error in saving data ", error.message);
+            console.log("Printing error in saving data ", error);
             return res.status(500).json({
                 success:false,
                 message:"Error in file data saving",
