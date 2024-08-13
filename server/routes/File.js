@@ -21,7 +21,7 @@ const upload = multer({
 });
 
 // Routes
-router.post("/localFileUpload", auth, upload.single("file"), localFileUpload);
+router.post("/localFileUpload", upload.single("file"), localFileUpload);
 router.post("/fileUploadUsingDriveLink",auth,fileUploadUsingDriveLink);
 router.get("/getSubjectName", getSubjectName);
 router.get("/getFilesByDepartmentAndSubject", getFilesByDepartmentAndSubject);
