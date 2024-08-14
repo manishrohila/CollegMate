@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { fileUploadEndpoints } from '../../../services/apis';
 import toast from 'react-hot-toast';
 import { apiConnector } from '../../../services/apiConnector';
 const { GET_FILES_BY_DEPARTMENT_AND_SUBJECT_API } = fileUploadEndpoints;
 
 const SubjectNotes = () => {
-  
   const { Department, subjectName } = useParams();
   const [files, setFiles] = useState([]);
 
@@ -34,19 +33,28 @@ const SubjectNotes = () => {
     }
   }, [Department, subjectName]);
 
+  const formatDate = (dateString) => {
+    const options = { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+    return new Date(dateString).toLocaleString('en-IN', options);
+  }
+
   return (
     <div className='min-h-[calc(100vh-3.2rem)]'>
-      <div className='h-20 bg-[#86C3FB]  text-lg md:text-4xl  font-medium font-sans flex items-center justify-center'>
+      <div className='h-20 bg-[#86C3FB] text-center text-lg md:text-4xl font-medium font-sans flex items-center justify-center'>
         {`${Department} - ${subjectName}`}
       </div>
-      <div className='grid md:grid-cols-3  w-10/12 mx-auto mt-4 gap-x-8 items-center'>
+      <div className='grid md:grid-cols-3 w-10/12 mx-auto mt-4 gap-x-8 items-center'>
         {files.length > 0 ? (
           files.map((file, index) => (
-            <div key={index} className=' bg-gradient-to-r from-cyan-200 to-blue-300 ...  text-sm rounded font-medium p-4 m-2'>
-              
-              <p>Subject: {file.subject}</p>
-              <p>Uploaded By: {file.firstName}</p>
-              <p>Year: {file.year}</p>
+            <div key={index} className='bg-gradient-to-r from-cyan-300 to-blue-400 text-sm rounded font-medium p-4 m-2'>
+              <div className="grid grid-cols-3 gap-2">
+                <p>Year:</p>
+                <p className="col-span-2">{file.year}</p>
+                <p>Time:</p>
+                <p className="col-span-2">{formatDate(file.uploadedAt)}</p>
+                <p>Uploaded By:</p>
+                <p className="col-span-2">{file.firstName}</p>
+              </div>
               {file.filePath ? (
                 <button
                   className='bg-blue-500 text-white rounded p-2 mt-2'

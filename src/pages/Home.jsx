@@ -36,10 +36,10 @@ const Home = () => {
         <div className='grid grid-cols-1 mt-24'>
           <div className='flex flex-col justify-center items-center'>
             <div className='gap-10 flex flex-col justify-center'>
-              <Button active={false} linkto={'/upload'} className={'bg-blue-600 hover:bg-blue-700'}>
+              <Button active={false} linkto={'/upload'} className={'bg-gradient-to-r from-cyan-600 to-blue-700'}>
                 Upload Notes
               </Button>
-              <Button active={false} linkto={'/courses'} className={'bg-blue-600 hover:bg-blue-700'}>
+              <Button active={false} linkto={'/courses'} className={'bg-gradient-to-r from-cyan-600 to-blue-700'}>
                 Find Notes
               </Button>
             </div>

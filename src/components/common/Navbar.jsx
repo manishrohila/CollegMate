@@ -10,16 +10,17 @@ const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const location = useLocation();
   const { token } = useSelector((state) => state.auth);
-  const menuRef = useRef(null); // Reference to the menu container
+  const menuRef = useRef(null);
 
   const closeMenu = () => setShowMenu(false);
 
-  // Menu items to show based on login status
   const menu = [
     { title: "Home", path: "/" },
     { title: "Courses", path: "/courses" },
     { title: "Upload", path: "/upload" },
     { title: "Contact Us", path: "/contact" },
+    { title: "Profile", path: "/dashboard/my-profile" },
+    { title: "Dashboard", path: "/dashboard" },
     ...(!token ? [
       { title: "Login", path: "/login" },
       { title: "Sign Up", path: "/signup" },
@@ -37,26 +38,24 @@ const Navbar = () => {
       }
     };
 
-    // Add event listener when the menu is open
     if (showMenu) {
       document.addEventListener('mousedown', handleClickOutside);
     } else {
       document.removeEventListener('mousedown', handleClickOutside);
     }
 
-    // Clean up the event listener on component unmount or when menu state changes
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [showMenu]);
 
   return (
-    <div className={`flex h-16 items-center bg-[#012152] justify-center border-b-[1px] border-b-richblack-700 ${location.pathname === "/" ? "bg-[#012152]" : "bg-white"} transition-all duration-200`}>
+    <div className={`flex md:h-16 h-12 items-center bg-[#012152] justify-center border-b-[1px] border-b-richblack-700 ${location.pathname === "/" ? "bg-[#012152]" : "bg-white"} transition-all duration-200`}>
       {/* Logo */}
       <div className='flex w-11/12 max-w-maxContent items-center justify-between'>
         <div className='cursor-pointer'>
           <Link to='/'>
-            <h1 className='text-5xl font-extrabold text-blue-500'>CollegMate</h1>
+            <h1 className='md:text-5xl text-2xl font-extrabold text-blue-500'>CollegMate</h1>
           </Link>
         </div>
 
@@ -64,20 +63,12 @@ const Navbar = () => {
           <ul className='flex gap-x-6 font-bold'>
             {NavBarLinks.map((link, index) => (
               <li key={index}>
-                  {
-                      <Link to={link?.path}>
-                        <p
-                          className={`${matchRoute(link?.path)
-                            ? "text-blue-500"
-                            : `${ location.pathname === "/" ? "text-white " : "text-[#2d2f31]"}` 
-                            }`}
-                        >
-                          {link.title}
-                        </p>
-                      </Link>
-                    
-                  }
-                </li>
+                <Link to={link?.path}>
+                  <p className={`${matchRoute(link?.path) ? "text-blue-500" : `${ location.pathname === "/" ? "text-white " : "text-[#2d2f31]"}`}`}>
+                    {link.title}
+                  </p>
+                </Link>
+              </li>
             ))}
           </ul>
         </nav>
@@ -98,11 +89,11 @@ const Navbar = () => {
         </div>
 
         {/* For Mobiles */}
-        <div className='md:hidden relative'>
-          <GiHamburgerMenu onClick={() => setShowMenu(!showMenu)} />
+        <div className='md:hidden mr-6 relative'>
+          <GiHamburgerMenu onClick={() => setShowMenu(!showMenu)} className={`${matchRoute('/') ? "text-blue-500" : `${ location.pathname === "/" ? "text-white " : "text-black"}`}`} />
           <div
-            ref={menuRef} // Attach the ref here
-            className={`fixed top-0 right-0 h-full bg-white border border-gray-300 rounded shadow-lg z-50 transition-transform duration-300 ${showMenu ? 'transform translate-x-0' : 'transform translate-x-full'}`}
+            ref={menuRef}
+            className={`absolute top-8 right-0 bg-white border border-gray-300 rounded shadow-lg z-50 transition-transform duration-300 ${showMenu ? 'transform translate-x-0' : 'transform -translate-x-full'}`}
           >
             {showMenu && (
               <div className='flex flex-col'>
@@ -111,7 +102,7 @@ const Navbar = () => {
                     key={index}
                     to={item.path}
                     className='block w-[120px] text-center px-4 py-2 text-black hover:bg-gray-200 border-b border-gray-300'
-                    onClick={closeMenu} // Close menu on link click
+                    onClick={closeMenu}
                   >
                     {item.title}
                   </Link>

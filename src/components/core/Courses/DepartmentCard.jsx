@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import { department } from '../../../Data/Department'
-import Button from '../../common/Button'
-import SearchBox from '../../common/SearchBox'
+import React, { useState } from 'react';
+import { department } from '../../../Data/Department';
+import Button from '../../common/Button';
+import SearchBox from '../../common/SearchBox';
 
 const DepartmentCard = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -12,32 +12,44 @@ const DepartmentCard = () => {
     );
 
     return (
-        <div>
-            <div className='w-5/12 flex justify-center mx-auto mt-10'>
-                <SearchBox onSearch={setSearchQuery}  placeholder="Search Departments"/>
+        <div className="mt-10">
+            {/* Search Box */}
+            <div className="md:w-5/12 w-9/12 flex justify-center mx-auto">
+                <SearchBox 
+                    onSearch={setSearchQuery}  
+                    placeholder="Search Departments"
+                />
             </div>
-            <div className='w-10/12 mx-auto m-6'>
-                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-4'>
-                    {
-                        filteredCourses.map((course, index) => (
-                            <div key={index} className='border-2 border-black bg-white flex flex-col justify-center items-center w-full h-64'>
-                                {/* Upper Part */}
-                                <div className='w-full h-40 bg-[#329BFA] flex justify-center items-center'>
-                                    <p className='text-black font-medium text-xl text-center'>{course.name}</p>
+
+            {/* Department Cards */}
+            <div className="md:w-10/12 w-9/12 mx-auto my-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    {filteredCourses.map((course, index) => (
+                        <div 
+                            key={index} 
+                            className="flex justify-center items-center border-2 border-black rounded-xl w-full md:h-64 h-52 flex-col"
+                        >
+                            
+                                {/* Department Name */}
+                                <div className="w-full md:h-40 h-32 bg-gradient-to-b from-cyan-400 to-blue-500 flex justify-center items-center rounded-t-xl text-black font-medium text-xl text-center ">
+                                    {course.name}
                                 </div>
-                                {/* Lower Part */}
-                                <div className='w-full h-24 bg-[#EDF4FB] flex justify-center items-center'>
-                                    <Button active={false} linkto={`/courses/${course.name}` }>
+                                {/* Select Department Button */}
+                                <div className="w-full md:h-24 h-20 bg-[#EDF4FB] flex justify-center items-center rounded-b-lg">
+                                    <Button 
+                                        active={false} 
+                                        linkto={`/courses/${course.name}`}
+                                    >
                                         Select Department
                                     </Button>
                                 </div>
-                            </div>
-                        ))
-                    }
+                 
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default DepartmentCard
+export default DepartmentCard;
