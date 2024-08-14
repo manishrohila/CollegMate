@@ -22,7 +22,7 @@ const ProfileDropDown = () => {
                 <div 
                     onClick={(e) => e.stopPropagation()} 
                     className='absolute border-richblack-700 bg-richblack-800 overflow-hidden border-[1px] top-[118%] right-0 transform translate-x-[calc(100%-140px)] z-[1000] divide-y-[1px]'
-                    style={{ minWidth: '200px' }}  // Adjust width as needed
+                    style={{ minWidth: '150px' }}  // Adjust width as needed
                 >
                     <Link to="/dashboard/my-profile" onClick={() => setOpen(false)}>
                         <div className="flex w-full items-center gap-x-1 py-[10px] px-[12px] text-sm text-richblack-100 hover:bg-richblack-700 hover:text-richblack-25">
