@@ -156,8 +156,9 @@ exports.getFilesByDepartmentAndSubject = async (req, res) => {
 exports.getUserNotes=async (req,res)=>
   {
     try {
+      console.log("printing req body", req);
       const userId = req.params.userId; // Get the userId from the request parameters
-  
+      console.log("printing user id ",userId);
       // Fetch all notes that belong to the user
       const notes = await File.find({ user: userId });
   

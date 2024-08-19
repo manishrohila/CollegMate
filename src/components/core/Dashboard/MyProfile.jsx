@@ -10,11 +10,11 @@ const MyProfile = () => {
     const { user } = useSelector((state) => state.profile);
 
     useEffect(() => {
-        // Fetch user files
+        // Fetch user file
         const fetchUserFiles = async () => {
             try {
-                const response = await apiConnector("GET", GET_USER_NOTES, {
-                    params: { userId: user._id },
+                const response = await apiConnector("GET", GET_USER_NOTES,{
+                    userid :user._id,
                 });
                 setFiles(response.data.notes);
             } catch (error) {
@@ -51,6 +51,7 @@ const MyProfile = () => {
                         {files.map((file) => (
                             <div key={file._id} className="bg-gradient-to-r from-cyan-300 to-blue-400 text-sm rounded font-medium p-4 m-2">
                                 <div className="text-lg font-medium">{file.subject}</div>
+                                <div className="text-lg font-medium">{file.firstName}</div>
                                 <div className="text-sm text-gray-400 mb-4">
                                     {formatDate(file.uploadedAt)}
                                 </div>
