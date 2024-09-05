@@ -16,7 +16,7 @@ app.use(cookieParser());
 app.use('/files', express.static(path.join(__dirname, 'files')));
 app.use(cors(
 	{
-		origin: ["*","http://localhost:3000","colleg-mate.vercel.app"],
+		origin: ["*","https://colleg-mate.vercel.app"],
 		credentials: true,
 	}
 ))
