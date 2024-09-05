@@ -13,7 +13,7 @@ const MyProfile = () => {
         // Fetch user file
         const fetchUserFiles = async () => {
             try {
-                const response = await apiConnector("GET", GET_USER_NOTES,{
+                const response = await apiConnector("GET", `${GET_USER_NOTES}?userid=${user._id}`,{
                     userid :user._id,
                 });
                 setFiles(response.data.notes);

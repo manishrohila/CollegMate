@@ -124,7 +124,7 @@ exports.getSubjectName = async (req, res) => {
 exports.getFilesByDepartmentAndSubject = async (req, res) => {
   try {
       const { Department, subjectName } = req.query;
-    console.log("print req.query",req.query);
+
       console.log("Department:", Department, "Subject Name:", subjectName);
       if (!Department || !subjectName) {
           return res.status(400).json({
@@ -156,12 +156,10 @@ exports.getFilesByDepartmentAndSubject = async (req, res) => {
 exports.getUserNotes=async (req,res)=>
   {
     try {
-      console.log("printing req body", req);
-      const userId = req.params.userId; // Get the userId from the request parameters
-      console.log("printing user id ",userId);
+      
+      const userId = req.query.userid; 
       // Fetch all notes that belong to the user
-      const notes = await File.find({ user: userId });
-  
+      const notes = await File.find({ uploadedBy: userId });
       if (!notes || notes.length === 0) {
         return res.status(404).json({
           success: false,
