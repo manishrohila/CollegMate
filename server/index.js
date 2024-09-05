@@ -16,7 +16,7 @@ app.use(cookieParser());
 app.use('/files', express.static(path.join(__dirname, 'files')));
 app.use(cors(
 	{
-		origin: ["*","http://localhost:3000","https://collegmate-backend-gvh7.onrender.com/"],
+		origin: ["*","http://localhost:3000","https://collegmate.onrender.com/"],
 		credentials: true,
 	}
 ))
